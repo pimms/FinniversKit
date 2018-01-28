@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		140E2953201DE671005AFB8D /* PlaygroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140E2952201DE671005AFB8D /* PlaygroundViewController.swift */; };
 		14405C801FAFC3A900D03E04 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14405C7E1FAFC3A900D03E04 /* App.swift */; };
 		144351B71FBE2BC1007B2229 /* PlaygroundImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144351B01FBE2BC1007B2229 /* PlaygroundImage.swift */; };
 		144351BB1FBE2BF1007B2229 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 144351BA1FBE2BF1007B2229 /* Assets.xcassets */; };
@@ -140,6 +141,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		140E2952201DE671005AFB8D /* PlaygroundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundViewController.swift; sourceTree = "<group>"; };
 		14405C5F1FAFBBF000D03E04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14405C741FAFBD1800D03E04 /* Playground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Playground.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14405C7E1FAFC3A900D03E04 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 				144351B01FBE2BC1007B2229 /* PlaygroundImage.swift */,
 				144351C31FBE2FA2007B2229 /* AppDelegate.swift */,
 				146D3C3F1FBE466D00124B76 /* ViewController.swift */,
+				140E2952201DE671005AFB8D /* PlaygroundViewController.swift */,
 			);
 			path = Playground;
 			sourceTree = "<group>";
@@ -878,6 +881,7 @@
 				146D3C401FBE466D00124B76 /* ViewController.swift in Sources */,
 				144351B71FBE2BC1007B2229 /* PlaygroundImage.swift in Sources */,
 				4447F70A1FDB2B4C0033DBC1 /* MarketGridViewPlayground.swift in Sources */,
+				140E2953201DE671005AFB8D /* PlaygroundViewController.swift in Sources */,
 				4447F70E1FDB2B590033DBC1 /* PreviewHelpers.swift in Sources */,
 				4447F7081FDB2B330033DBC1 /* LoginViewPlayground.swift in Sources */,
 				4447F70C1FDB2B540033DBC1 /* PreviewGridCellPlayground.swift in Sources */,
