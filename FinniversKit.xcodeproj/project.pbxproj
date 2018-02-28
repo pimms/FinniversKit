@@ -234,8 +234,8 @@
 		44898D5B1FE5B9C200F6017B /* UIImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		44898D5D1FE5B9C200F6017B /* UICollectionViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtensions.swift; sourceTree = "<group>"; };
 		44898D5E1FE5B9C200F6017B /* UITableViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewExtensions.swift; sourceTree = "<group>"; };
-		4535FD36202C4560002335E2 /* ConsentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConsentView.swift; path = Sources/Components/Consent/ConsentView.swift; sourceTree = SOURCE_ROOT; };
-		4535FD38202C456E002335E2 /* ConsentViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConsentViewModel.swift; path = Sources/Components/Consent/ConsentViewModel.swift; sourceTree = SOURCE_ROOT; };
+		4535FD36202C4560002335E2 /* ConsentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConsentView.swift; path = "Sources/Components/New Group/New Group/ConsentView.swift"; sourceTree = SOURCE_ROOT; };
+		4535FD38202C456E002335E2 /* ConsentViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConsentViewModel.swift; path = "Sources/Components/New Group/New Group/ConsentViewModel.swift"; sourceTree = SOURCE_ROOT; };
 		4535FD3B202C461D002335E2 /* ConsentViewDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsentViewDemoView.swift; sourceTree = "<group>"; };
 		4535FD3E202C5074002335E2 /* ConsentViewDefaultData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsentViewDefaultData.swift; sourceTree = "<group>"; };
 		4577F61D201F3D54009CBAE8 /* DemoViewsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoViewsTableViewController.swift; sourceTree = "<group>"; };
@@ -740,12 +740,28 @@
 			path = UIKit;
 			sourceTree = "<group>";
 		};
-		4535FD31202C4282002335E2 /* Consent */ = {
+		450C0B0A2046F14600BE2886 /* ConsentView */ = {
 			isa = PBXGroup;
 			children = (
 				4535FD3A202C45F9002335E2 /* Demo */,
 				4535FD36202C4560002335E2 /* ConsentView.swift */,
 				4535FD38202C456E002335E2 /* ConsentViewModel.swift */,
+			);
+			path = ConsentView;
+			sourceTree = "<group>";
+		};
+		450C0B0B2046F15600BE2886 /* ConsentSequence */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ConsentSequence;
+			sourceTree = "<group>";
+		};
+		4535FD31202C4282002335E2 /* Consent */ = {
+			isa = PBXGroup;
+			children = (
+				450C0B0B2046F15600BE2886 /* ConsentSequence */,
+				450C0B0A2046F14600BE2886 /* ConsentView */,
 			);
 			name = Consent;
 			path = "New Group";
