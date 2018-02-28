@@ -104,8 +104,8 @@
 		44C4E8DE1FFBA714000B014D /* FinniversKit.swift in Headers */ = {isa = PBXBuildFile; fileRef = 4447F6C61FDB2B110033DBC1 /* FinniversKit.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		44D32C281FB07850001E86D6 /* FinniversKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB3CF1561F73E5870041EF20 /* FinniversKit.framework */; };
 		44D32C291FB07850001E86D6 /* FinniversKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CB3CF1561F73E5870041EF20 /* FinniversKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4535FD37202C4560002335E2 /* ConsentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4535FD36202C4560002335E2 /* ConsentView.swift */; };
-		4535FD39202C456E002335E2 /* ConsentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4535FD38202C456E002335E2 /* ConsentViewModel.swift */; };
+		450C0B0D2046F1D300BE2886 /* ConsentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450C0B0C2046F1D300BE2886 /* ConsentView.swift */; };
+		450C0B0F2046F1E300BE2886 /* ConsentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450C0B0E2046F1E300BE2886 /* ConsentViewModel.swift */; };
 		4535FD3D202C504A002335E2 /* ConsentViewDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4535FD3B202C461D002335E2 /* ConsentViewDemoView.swift */; };
 		4535FD40202C5094002335E2 /* ConsentViewDefaultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4535FD3E202C5074002335E2 /* ConsentViewDefaultData.swift */; };
 		4577F61E201F3D54009CBAE8 /* DemoViewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4577F61D201F3D54009CBAE8 /* DemoViewsTableViewController.swift */; };
@@ -234,8 +234,8 @@
 		44898D5B1FE5B9C200F6017B /* UIImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		44898D5D1FE5B9C200F6017B /* UICollectionViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtensions.swift; sourceTree = "<group>"; };
 		44898D5E1FE5B9C200F6017B /* UITableViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewExtensions.swift; sourceTree = "<group>"; };
-		4535FD36202C4560002335E2 /* ConsentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConsentView.swift; path = "Sources/Components/New Group/New Group/ConsentView.swift"; sourceTree = SOURCE_ROOT; };
-		4535FD38202C456E002335E2 /* ConsentViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConsentViewModel.swift; path = "Sources/Components/New Group/New Group/ConsentViewModel.swift"; sourceTree = SOURCE_ROOT; };
+		450C0B0C2046F1D300BE2886 /* ConsentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentView.swift; sourceTree = "<group>"; };
+		450C0B0E2046F1E300BE2886 /* ConsentViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentViewModel.swift; sourceTree = "<group>"; };
 		4535FD3B202C461D002335E2 /* ConsentViewDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsentViewDemoView.swift; sourceTree = "<group>"; };
 		4535FD3E202C5074002335E2 /* ConsentViewDefaultData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsentViewDefaultData.swift; sourceTree = "<group>"; };
 		4577F61D201F3D54009CBAE8 /* DemoViewsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoViewsTableViewController.swift; sourceTree = "<group>"; };
@@ -744,8 +744,8 @@
 			isa = PBXGroup;
 			children = (
 				4535FD3A202C45F9002335E2 /* Demo */,
-				4535FD36202C4560002335E2 /* ConsentView.swift */,
-				4535FD38202C456E002335E2 /* ConsentViewModel.swift */,
+				450C0B0C2046F1D300BE2886 /* ConsentView.swift */,
+				450C0B0E2046F1E300BE2886 /* ConsentViewModel.swift */,
 			);
 			path = ConsentView;
 			sourceTree = "<group>";
@@ -1102,8 +1102,6 @@
 				4447F6CC1FDB2B110033DBC1 /* CircleView.swift in Sources */,
 				4447F6D21FDB2B110033DBC1 /* Label.swift in Sources */,
 				AF91BBA1202C8B72003E6366 /* BroadcastView+Style.swift in Sources */,
-				4535FD37202C4560002335E2 /* ConsentView.swift in Sources */,
-				4535FD39202C456E002335E2 /* ConsentViewModel.swift in Sources */,
 				55C5B278203DB56A007D7277 /* BroadcastViewMessage.swift in Sources */,
 				4447F6EF1FDB2B110033DBC1 /* ToastView+Style.swift in Sources */,
 				441D699B1FEA947600CD919A /* UIViewExtensions.swift in Sources */,
@@ -1131,6 +1129,7 @@
 				4447F6ED1FDB2B110033DBC1 /* TextField.swift in Sources */,
 				4447F6D41FDB2B110033DBC1 /* LoginView.swift in Sources */,
 				4447F6F01FDB2B110033DBC1 /* ToastView.swift in Sources */,
+				450C0B0F2046F1E300BE2886 /* ConsentViewModel.swift in Sources */,
 				4447F6CE1FDB2B110033DBC1 /* RoundedRectangleView.swift in Sources */,
 				AF91BB97202C74D0003E6366 /* BroadcastView.swift in Sources */,
 				4447F6E71FDB2B110033DBC1 /* PreviewGridView.swift in Sources */,
@@ -1138,6 +1137,7 @@
 				4447F6DB1FDB2B110033DBC1 /* MarketGridView.swift in Sources */,
 				4447F6E91FDB2B110033DBC1 /* Ribbon+Style.swift in Sources */,
 				4447F6D81FDB2B110033DBC1 /* MarketGridCell.swift in Sources */,
+				450C0B0D2046F1D300BE2886 /* ConsentView.swift in Sources */,
 				4447F6CF1FDB2B110033DBC1 /* TriangleView.swift in Sources */,
 				4408A6A52027AC41008C0BD9 /* Font.swift in Sources */,
 				4408A6A42027AC41008C0BD9 /* Spacing.swift in Sources */,
