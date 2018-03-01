@@ -122,16 +122,24 @@ public class ConsentSummaryView: UIView {
 
     private lazy var descriptionLabel: Label = {
         let label = Label(style: .body(.licorice))
-        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
         return label
     }()
 
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         imageView.image = UIImage(frameworkImageNamed: "consentViewImage1")
         return imageView
+    }()
+
+    private lazy var descriptionStackView: UIStackView = {
+        let view = UIStackView(arrangedSubviews: [descriptionLabel, imageView])
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.axis = .horizontal
+        view.distribution = .fillProportionally
+        view.spacing = .mediumSpacing
+        return view
     }()
 
     private lazy var doneButton: Button = {
@@ -177,8 +185,10 @@ public class ConsentSummaryView: UIView {
         addSubview(scrollView)
         scrollView.addSubview(contentView)
 
-        contentView.addSubview(imageView)
         contentView.addSubview(titleLabel)
+        contentView.addSubview(introDescriptionLabel)
+        contentView.addSubview(switchStackView)
+        contentView.addSubview(descriptionStackView)
         addSubview(doneButton)
 
         NSLayoutConstraint.activate([
@@ -193,26 +203,22 @@ public class ConsentSummaryView: UIView {
             contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
 
-            titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: .mediumLargeSpacing),
+            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: .largeSpacing),
             titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
-            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
-            titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
 
-            introDescriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: .smallSpacing),
+            introDescriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: .mediumSpacing),
             introDescriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
-            introDescriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
+            introDescriptionLabel.trailingAnchor.constraint(lessThanOrEqualTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
 
-            switchStackView.topAnchor.constraint(equalTo: introDescriptionLabel.bottomAnchor, constant: .mediumLargeSpacing),
-            switchStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
-            switchStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
+            switchStackView.topAnchor.constraint(equalTo: introDescriptionLabel.bottomAnchor, constant: .largeSpacing),
+            switchStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .largeSpacing),
+            switchStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.largeSpacing),
 
-            descriptionLabel.topAnchor.constraint(equalTo: switchStackView.bottomAnchor, constant: .mediumLargeSpacing),
-            descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
-            descriptionLabel.trailingAnchor.constraint(equalTo: imageView.leadingAnchor, constant: .mediumSpacing),
-
-            imageView.topAnchor.constraint(equalTo: descriptionLabel.topAnchor, constant: .mediumSpacing),
-            //            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
-            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
+            descriptionStackView.topAnchor.constraint(equalTo: switchStackView.bottomAnchor, constant: .largeSpacing),
+            descriptionStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
+            descriptionStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
+            descriptionStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
 
             doneButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -.largeSpacing),
             doneButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: .veryLargeSpacing),
