@@ -110,6 +110,8 @@
 		4535FD3D202C504A002335E2 /* ConsentViewDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4535FD3B202C461D002335E2 /* ConsentViewDemoView.swift */; };
 		4535FD40202C5094002335E2 /* ConsentViewDefaultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4535FD3E202C5074002335E2 /* ConsentViewDefaultData.swift */; };
 		453753D82047ED69005F285C /* ConsentIntroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453753D72047ED69005F285C /* ConsentIntroViewModel.swift */; };
+		453753DC2047F2D9005F285C /* ConsentIntroViewDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453753DA2047F2CA005F285C /* ConsentIntroViewDemoView.swift */; };
+		453753DF2047F34E005F285C /* ConsentIntroViewDefaultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453753DD2047F324005F285C /* ConsentIntroViewDefaultData.swift */; };
 		4577F61E201F3D54009CBAE8 /* DemoViewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4577F61D201F3D54009CBAE8 /* DemoViewsTableViewController.swift */; };
 		45FB44492036F21500C121EB /* NSAttributedString+FinniversKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FB44482036F21500C121EB /* NSAttributedString+FinniversKit.swift */; };
 		55C5B274203D8E20007D7277 /* BroadcastContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C5B273203D8E20007D7277 /* BroadcastContainerView.swift */; };
@@ -242,6 +244,8 @@
 		4535FD3B202C461D002335E2 /* ConsentViewDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsentViewDemoView.swift; sourceTree = "<group>"; };
 		4535FD3E202C5074002335E2 /* ConsentViewDefaultData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsentViewDefaultData.swift; sourceTree = "<group>"; };
 		453753D72047ED69005F285C /* ConsentIntroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsentIntroViewModel.swift; sourceTree = "<group>"; };
+		453753DA2047F2CA005F285C /* ConsentIntroViewDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsentIntroViewDemoView.swift; sourceTree = "<group>"; };
+		453753DD2047F324005F285C /* ConsentIntroViewDefaultData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsentIntroViewDefaultData.swift; sourceTree = "<group>"; };
 		4577F61D201F3D54009CBAE8 /* DemoViewsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoViewsTableViewController.swift; sourceTree = "<group>"; };
 		45FB44482036F21500C121EB /* NSAttributedString+FinniversKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+FinniversKit.swift"; sourceTree = "<group>"; };
 		55C5B273203D8E20007D7277 /* BroadcastContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastContainerView.swift; sourceTree = "<group>"; };
@@ -784,10 +788,20 @@
 		453753D62047EBEB005F285C /* Intro */ = {
 			isa = PBXGroup;
 			children = (
+				453753D92047F2A6005F285C /* Demo */,
 				450C0B102046F52E00BE2886 /* ConsentIntroView.swift */,
 				453753D72047ED69005F285C /* ConsentIntroViewModel.swift */,
 			);
 			path = Intro;
+			sourceTree = "<group>";
+		};
+		453753D92047F2A6005F285C /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				453753DA2047F2CA005F285C /* ConsentIntroViewDemoView.swift */,
+				453753DD2047F324005F285C /* ConsentIntroViewDefaultData.swift */,
+			);
+			path = Demo;
 			sourceTree = "<group>";
 		};
 		457B35CF1F7BE2670031E125 /* Frameworks */ = {
@@ -1085,6 +1099,7 @@
 				4535FD40202C5094002335E2 /* ConsentViewDefaultData.swift in Sources */,
 				4447F70D1FDB2B590033DBC1 /* PreviewGridViewDemoView.swift in Sources */,
 				AACB03532029AB8C005FF060 /* RegisterViewDemoView.swift in Sources */,
+				453753DC2047F2D9005F285C /* ConsentIntroViewDemoView.swift in Sources */,
 				1457254B1FBEEF6A00648D73 /* MarketView.swift in Sources */,
 				4447F7041FDB2B1F0033DBC1 /* ButtonDemoView.swift in Sources */,
 				4408A6AB2027AC7B008C0BD9 /* FontDemoView.swift in Sources */,
@@ -1094,6 +1109,7 @@
 				4535FD3D202C504A002335E2 /* ConsentViewDemoView.swift in Sources */,
 				4447F7111FDB2B8C0033DBC1 /* ToastDemoView.swift in Sources */,
 				4447F7051FDB2B270033DBC1 /* EmptyViewDemoView.swift in Sources */,
+				453753DF2047F34E005F285C /* ConsentIntroViewDefaultData.swift in Sources */,
 				AAC1AFB42021058000C71B7C /* Demo.swift in Sources */,
 				144351C41FBE2FA2007B2229 /* AppDelegate.swift in Sources */,
 				4447F70B1FDB2B4C0033DBC1 /* MarketHelpers.swift in Sources */,
