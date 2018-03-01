@@ -55,6 +55,7 @@ public class ConsentIntroView: UIView {
         let label = Label(style: .title2)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
+        label.textAlignment = .center
         return label
     }()
 
@@ -62,7 +63,7 @@ public class ConsentIntroView: UIView {
 
     public weak var delegate: ConsentIntroViewDelegate?
 
-    public var model: ConsentIntroModel? {
+    public var model: ConsentIntroViewModel? {
         didSet {
             guard let model = model else {
                 return
@@ -91,7 +92,9 @@ public class ConsentIntroView: UIView {
         scrollView.addSubview(contentView)
 
         contentView.addSubview(skipButton)
-        contentView.addSubview(continueButton)
+        contentView.addSubview(imageView)
+        contentView.addSubview(descriptionTitleLabel)
+        addSubview(continueButton)
 
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: topAnchor),
@@ -106,7 +109,7 @@ public class ConsentIntroView: UIView {
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
 
             skipButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: .mediumSpacing),
-            skipButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: .mediumLargeSpacing),
+            skipButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
             skipButton.leadingAnchor.constraint(greaterThanOrEqualTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
 
             imageView.topAnchor.constraint(equalTo: skipButton.bottomAnchor, constant: .mediumSpacing),
@@ -118,9 +121,9 @@ public class ConsentIntroView: UIView {
             descriptionTitleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
             descriptionTitleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
 
-            continueButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -.mediumLargeSpacing),
-            continueButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: .mediumLargeSpacing),
-            continueButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -.mediumLargeSpacing),
+            continueButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -.largeSpacing),
+            continueButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: .veryLargeSpacing),
+            continueButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -.veryLargeSpacing),
         ])
     }
 
