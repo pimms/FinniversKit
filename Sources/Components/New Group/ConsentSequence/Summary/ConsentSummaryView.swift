@@ -94,7 +94,7 @@ public class ConsentSummaryView: UIView {
     }()
 
     private lazy var commercialStackView: UIStackView = {
-        let view = UIStackView(arrangedSubviews: [recommendationLabel, recommendationsSwitch])
+        let view = UIStackView(arrangedSubviews: [commercialLabel, commercialSwitch])
         view.translatesAutoresizingMaskIntoConstraints = false
         view.axis = .horizontal
         view.distribution = .fill
@@ -103,7 +103,7 @@ public class ConsentSummaryView: UIView {
     }()
 
     private lazy var improveStackView: UIStackView = {
-        let view = UIStackView(arrangedSubviews: [recommendationLabel, recommendationsSwitch])
+        let view = UIStackView(arrangedSubviews: [improveLabel, improveSwitch])
         view.translatesAutoresizingMaskIntoConstraints = false
         view.axis = .horizontal
         view.distribution = .fill
