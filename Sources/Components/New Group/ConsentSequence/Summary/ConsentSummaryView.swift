@@ -154,7 +154,7 @@ public class ConsentSummaryView: UIView {
             titleLabel.text = model.title
             introDescriptionLabel.text = model.introDescription
             recommendationLabel.text = model.recommendationTitle
-            commercialLabel.text = model.recommendationTitle
+            commercialLabel.text = model.commercialTitle
             improveLabel.text = model.improveTitle
             descriptionLabel.text = model.description
             doneButton.setTitle(model.doneButtonTitle, for: .normal)
