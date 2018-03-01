@@ -116,7 +116,7 @@ public class ConsentSummaryView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.axis = .vertical
         view.distribution = .fillEqually
-        view.spacing = .smallSpacing
+        view.spacing = .largeSpacing
         return view
     }()
 
