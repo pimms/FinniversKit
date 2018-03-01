@@ -63,7 +63,7 @@ public class ConsentSummaryView: UIView {
     private lazy var recommendationsSwitch: UISwitch = {
         let mySwitch = UISwitch()
         mySwitch.tintColor = .sardine
-        mySwitch.onTintColor = .secondaryBlue
+        mySwitch.onTintColor = .pea
         mySwitch.addTarget(self, action: #selector(recommendationsSwitchChangedState), for: .valueChanged)
         return mySwitch
     }()
@@ -71,7 +71,7 @@ public class ConsentSummaryView: UIView {
     private lazy var commercialSwitch: UISwitch = {
         let mySwitch = UISwitch()
         mySwitch.tintColor = .sardine
-        mySwitch.onTintColor = .secondaryBlue
+        mySwitch.onTintColor = .pea
         mySwitch.addTarget(self, action: #selector(commercialSwitchChangedState), for: .valueChanged)
         return mySwitch
     }()
@@ -79,7 +79,7 @@ public class ConsentSummaryView: UIView {
     private lazy var improveSwitch: UISwitch = {
         let mySwitch = UISwitch()
         mySwitch.tintColor = .sardine
-        mySwitch.onTintColor = .secondaryBlue
+        mySwitch.onTintColor = .pea
         mySwitch.addTarget(self, action: #selector(improveSwitchChangedState), for: .valueChanged)
         return mySwitch
     }()
