@@ -17,18 +17,6 @@ public class ConsentIntroView: UIView {
 
     private let noImage: UIImage = UIImage(frameworkImageNamed: "NoImage")!
 
-    private lazy var scrollView: UIScrollView = {
-        let view = UIScrollView(frame: .zero)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-
-    private lazy var contentView: UIView = {
-        let view = UIView(frame: .zero)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-
     private lazy var continueButton: Button = {
         let button = Button(style: .callToAction)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -51,8 +39,16 @@ public class ConsentIntroView: UIView {
         return imageView
     }()
 
-    private lazy var descriptionTitleLabel: Label = {
-        let label = Label(style: .title2)
+    private lazy var descriptionHeaderLabel: Label = {
+        let label = Label(style: .title3)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        return label
+    }()
+
+    private lazy var descriptionLabel: Label = {
+        let label = Label(style: .title4(.licorice))
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         label.textAlignment = .center
@@ -71,7 +67,8 @@ public class ConsentIntroView: UIView {
 
             continueButton.setTitle(model.continueButtonTitle, for: .normal)
             skipButton.setTitle(model.skipButtonTitle, for: .normal)
-            descriptionTitleLabel.text = model.descriptionTitle
+            descriptionHeaderLabel.text = model.descriptionHeaderTitle
+            descriptionLabel.text = model.descriptionTitle
         }
     }
 
@@ -88,42 +85,33 @@ public class ConsentIntroView: UIView {
     }
 
     private func setup() {
-        addSubview(scrollView)
-        scrollView.addSubview(contentView)
-
-        contentView.addSubview(skipButton)
-        contentView.addSubview(imageView)
-        contentView.addSubview(descriptionTitleLabel)
+        addSubview(skipButton)
+        addSubview(imageView)
+        addSubview(descriptionHeaderLabel)
+        addSubview(descriptionLabel)
         addSubview(continueButton)
 
         NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: topAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: continueButton.topAnchor, constant: -.mediumSpacing),
-            scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
-
-            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
-
-            skipButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: .mediumSpacing),
-            skipButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
-            skipButton.leadingAnchor.constraint(greaterThanOrEqualTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
+            skipButton.topAnchor.constraint(equalTo: topAnchor, constant: .mediumSpacing),
+            skipButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -.mediumLargeSpacing),
+            skipButton.leadingAnchor.constraint(greaterThanOrEqualTo: leadingAnchor, constant: .mediumLargeSpacing),
 
             imageView.topAnchor.constraint(equalTo: skipButton.bottomAnchor, constant: .mediumSpacing),
-            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
-            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
+            imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: .mediumLargeSpacing),
+            imageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -.mediumLargeSpacing),
+            imageView.bottomAnchor.constraint(lessThanOrEqualTo: descriptionHeaderLabel.topAnchor, constant: -.mediumLargeSpacing),
 
-            descriptionTitleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: .mediumLargeSpacing),
-            descriptionTitleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
-            descriptionTitleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
-            descriptionTitleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            descriptionHeaderLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: .mediumLargeSpacing),
+            descriptionHeaderLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -.mediumLargeSpacing),
+            descriptionHeaderLabel.bottomAnchor.constraint(equalTo: descriptionLabel.topAnchor, constant: -.mediumLargeSpacing),
 
-            continueButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -.largeSpacing),
+            descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: .mediumLargeSpacing),
+            descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -.mediumLargeSpacing),
+            descriptionLabel.bottomAnchor.constraint(equalTo: continueButton.topAnchor, constant: -.largeSpacing),
+
             continueButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: .veryLargeSpacing),
             continueButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -.veryLargeSpacing),
+            continueButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -.veryLargeSpacing),
         ])
     }
 

@@ -5,5 +5,6 @@
 public protocol ConsentIntroViewModel {
     var continueButtonTitle: String { get }
     var skipButtonTitle: String { get }
+    var descriptionHeaderTitle: String { get }
     var descriptionTitle: String { get }
 }
