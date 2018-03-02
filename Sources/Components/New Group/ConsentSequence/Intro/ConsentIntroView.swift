@@ -15,7 +15,6 @@ public class ConsentIntroView: UIView {
 
     // MARK: - Internal properties
 
-    private let noImage: UIImage = UIImage(frameworkImageNamed: "NoImage")!
     private let minimumImageHeight: CGFloat = 100
 
     private lazy var continueButton: Button = {
@@ -36,7 +35,7 @@ public class ConsentIntroView: UIView {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(frameworkImageNamed: "consentIntro")
+        imageView.image = UIImage(frameworkImageNamed: "consentIntroImage")
         imageView.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
         return imageView
     }()

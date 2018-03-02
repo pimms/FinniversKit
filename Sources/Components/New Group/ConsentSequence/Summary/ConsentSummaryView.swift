@@ -15,8 +15,6 @@ public class ConsentSummaryView: UIView {
 
     // MARK: - Internal properties
 
-    private let noImage: UIImage = UIImage(frameworkImageNamed: "NoImage")!
-
     private lazy var scrollView: UIScrollView = {
         let view = UIScrollView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
