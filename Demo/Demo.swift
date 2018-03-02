@@ -24,6 +24,7 @@ enum FinniversKitViews: String {
     case toastDemoView
     case emptyViewDemoView
     case consentViewDemoView
+    case toggleSwitchViewDemoView
     case consentIntroViewDemoView
     case consentSummaryViewDemoView
 
@@ -67,6 +68,8 @@ enum FinniversKitViews: String {
             return ViewController<EmptyViewDemoView>()
         case .consentViewDemoView:
             return ViewController<ConsentViewDemoView>()
+        case .toggleSwitchViewDemoView:
+            return ViewController<ToggleSwitchViewDemoView>()
         case .consentIntroViewDemoView:
             return ViewController<ConsentIntroViewDemoView>()
         case .consentSummaryViewDemoView:
@@ -95,6 +98,7 @@ enum FinniversKitViews: String {
             .toastDemoView,
             .emptyViewDemoView,
             .consentViewDemoView,
+            .toggleSwitchViewDemoView,
             .consentIntroViewDemoView,
             .consentSummaryViewDemoView,
         ]
