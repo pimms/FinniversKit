@@ -16,6 +16,7 @@ public class ConsentIntroView: UIView {
     // MARK: - Internal properties
 
     private let noImage: UIImage = UIImage(frameworkImageNamed: "NoImage")!
+    private let minimumImageHeight: CGFloat = 100
 
     private lazy var continueButton: Button = {
         let button = Button(style: .callToAction)
@@ -35,7 +36,8 @@ public class ConsentIntroView: UIView {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(frameworkImageNamed: "consentViewImage1")
+        imageView.image = UIImage(frameworkImageNamed: "consentIntro")
+        imageView.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
         return imageView
     }()
 
@@ -92,22 +94,23 @@ public class ConsentIntroView: UIView {
         addSubview(continueButton)
 
         NSLayoutConstraint.activate([
-            skipButton.topAnchor.constraint(equalTo: topAnchor, constant: .mediumSpacing),
+            skipButton.topAnchor.constraint(equalTo: topAnchor, constant: .mediumLargeSpacing),
             skipButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -.mediumLargeSpacing),
             skipButton.leadingAnchor.constraint(greaterThanOrEqualTo: leadingAnchor, constant: .mediumLargeSpacing),
 
-            imageView.topAnchor.constraint(equalTo: skipButton.bottomAnchor, constant: .mediumSpacing),
+            imageView.topAnchor.constraint(equalTo: skipButton.bottomAnchor, constant: .mediumLargeSpacing),
             imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: .mediumLargeSpacing),
             imageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -.mediumLargeSpacing),
-            imageView.bottomAnchor.constraint(lessThanOrEqualTo: descriptionHeaderLabel.topAnchor, constant: -.mediumLargeSpacing),
+            imageView.bottomAnchor.constraint(lessThanOrEqualTo: descriptionHeaderLabel.topAnchor, constant: -.largeSpacing),
+            imageView.heightAnchor.constraint(greaterThanOrEqualToConstant: minimumImageHeight),
 
             descriptionHeaderLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: .mediumLargeSpacing),
             descriptionHeaderLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -.mediumLargeSpacing),
-            descriptionHeaderLabel.bottomAnchor.constraint(equalTo: descriptionLabel.topAnchor, constant: -.mediumLargeSpacing),
+            descriptionHeaderLabel.bottomAnchor.constraint(equalTo: descriptionLabel.topAnchor, constant: -.largeSpacing),
 
             descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: .mediumLargeSpacing),
             descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -.mediumLargeSpacing),
-            descriptionLabel.bottomAnchor.constraint(equalTo: continueButton.topAnchor, constant: -.largeSpacing),
+            descriptionLabel.bottomAnchor.constraint(equalTo: continueButton.topAnchor, constant: -.veryLargeSpacing),
 
             continueButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: .veryLargeSpacing),
             continueButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -.veryLargeSpacing),
