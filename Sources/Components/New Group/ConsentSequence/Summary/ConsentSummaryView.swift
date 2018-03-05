@@ -7,7 +7,7 @@ import UIKit
 // MARK: - ConsentPageViewsDelegate
 
 public protocol ConsentSummaryViewDelegate: NSObjectProtocol {
-    func consentSummaryView(_ consentSummaryView: ConsentSummaryView, switchStateDidChange button: Button)
+    func consentSummaryView(_ consentSummaryView: ConsentSummaryView, switchStateDidChange switch: UISwitch)
     func consentSummaryView(_ consentSummaryView: ConsentSummaryView, didSelectDoneButton button: Button)
 }
 
@@ -31,7 +31,6 @@ public class ConsentSummaryView: UIView {
         let label = Label(style: .title2)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
-        label.textAlignment = .center
         return label
     }()
 
@@ -39,105 +38,34 @@ public class ConsentSummaryView: UIView {
         let label = Label(style: .body(.stone))
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
-        label.textAlignment = .center
-        return label
-    }()
-
-    private lazy var recommendationLabel: Label = {
-        let label = Label(style: .title3)
-        return label
-    }()
-
-    private lazy var commercialLabel: Label = {
-        let label = Label(style: .title3)
-        return label
-    }()
-
-    private lazy var improveLabel: Label = {
-        let label = Label(style: .title3)
-        return label
-    }()
-
-    private lazy var recommendationsSwitch: UISwitch = {
-        let mySwitch = UISwitch()
-        mySwitch.tintColor = .sardine
-        mySwitch.onTintColor = .pea
-        mySwitch.addTarget(self, action: #selector(recommendationsSwitchChangedState), for: .valueChanged)
-        return mySwitch
-    }()
-
-    private lazy var commercialSwitch: UISwitch = {
-        let mySwitch = UISwitch()
-        mySwitch.tintColor = .sardine
-        mySwitch.onTintColor = .pea
-        mySwitch.addTarget(self, action: #selector(commercialSwitchChangedState), for: .valueChanged)
-        return mySwitch
-    }()
-
-    private lazy var improveSwitch: UISwitch = {
-        let mySwitch = UISwitch()
-        mySwitch.tintColor = .sardine
-        mySwitch.onTintColor = .pea
-        mySwitch.addTarget(self, action: #selector(improveSwitchChangedState), for: .valueChanged)
-        return mySwitch
-    }()
-
-    private lazy var recommendationStackView: UIStackView = {
-        let view = UIStackView(arrangedSubviews: [recommendationLabel, recommendationsSwitch])
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.axis = .horizontal
-        view.distribution = .fill
-        view.spacing = .mediumLargeSpacing
-        return view
-    }()
-
-    private lazy var commercialStackView: UIStackView = {
-        let view = UIStackView(arrangedSubviews: [commercialLabel, commercialSwitch])
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.axis = .horizontal
-        view.distribution = .fill
-        view.spacing = .mediumLargeSpacing
-        return view
-    }()
-
-    private lazy var improveStackView: UIStackView = {
-        let view = UIStackView(arrangedSubviews: [improveLabel, improveSwitch])
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.axis = .horizontal
-        view.distribution = .fill
-        view.spacing = .mediumLargeSpacing
-        return view
-    }()
-
-    private lazy var switchStackView: UIStackView = {
-        let view = UIStackView(arrangedSubviews: [recommendationStackView, commercialStackView, improveStackView])
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.axis = .vertical
-        view.distribution = .fillEqually
-        view.spacing = .largeSpacing
-        return view
-    }()
-
-    private lazy var descriptionLabel: Label = {
-        let label = Label(style: .body(.licorice))
-        label.numberOfLines = 0
         return label
     }()
 
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(frameworkImageNamed: "consentViewImage1")
+        imageView.image = UIImage(frameworkImageNamed: "consentSummaryImage")
         return imageView
     }()
 
-    private lazy var descriptionStackView: UIStackView = {
-        let view = UIStackView(arrangedSubviews: [descriptionLabel, imageView])
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.axis = .horizontal
-        view.distribution = .fillProportionally
-        view.spacing = .mediumSpacing
-        return view
+    private lazy var recommendationToggleSwitchView: ToggleSwitchView = {
+        return setupToggleSwitchView()
+    }()
+
+    private lazy var commercialToggleSwitchView: ToggleSwitchView = {
+        return setupToggleSwitchView()
+    }()
+
+    private lazy var improveToggleSwitchView: ToggleSwitchView = {
+        return setupToggleSwitchView()
+    }()
+
+    private lazy var descriptionLabel: Label = {
+        let label = Label(style: .body(.stone))
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
+        return label
     }()
 
     private lazy var doneButton: Button = {
@@ -159,9 +87,11 @@ public class ConsentSummaryView: UIView {
 
             titleLabel.text = model.title
             introDescriptionLabel.text = model.introDescription
-            recommendationLabel.text = model.recommendationTitle
-            commercialLabel.text = model.commercialTitle
-            improveLabel.text = model.improveTitle
+            recommendationToggleSwitchView.model = model.recommendationModel
+            recommendationToggleSwitchView.setOn(true)
+
+            commercialToggleSwitchView.model = model.commercialModel
+            improveToggleSwitchView.model = model.improveModel
             descriptionLabel.text = model.description
             doneButton.setTitle(model.doneButtonTitle, for: .normal)
         }
@@ -185,8 +115,11 @@ public class ConsentSummaryView: UIView {
 
         contentView.addSubview(titleLabel)
         contentView.addSubview(introDescriptionLabel)
-        contentView.addSubview(switchStackView)
-        contentView.addSubview(descriptionStackView)
+        contentView.addSubview(imageView)
+        contentView.addSubview(recommendationToggleSwitchView)
+        contentView.addSubview(commercialToggleSwitchView)
+        contentView.addSubview(improveToggleSwitchView)
+        contentView.addSubview(descriptionLabel)
         addSubview(doneButton)
 
         NSLayoutConstraint.activate([
@@ -201,22 +134,33 @@ public class ConsentSummaryView: UIView {
             contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
 
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: .largeSpacing),
+            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: .veryLargeSpacing),
             titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
-            titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
+            titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: imageView.leadingAnchor, constant: -.mediumSpacing),
 
             introDescriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: .mediumSpacing),
             introDescriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
-            introDescriptionLabel.trailingAnchor.constraint(lessThanOrEqualTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
+            introDescriptionLabel.trailingAnchor.constraint(lessThanOrEqualTo: imageView.leadingAnchor, constant: -.mediumSpacing),
 
-            switchStackView.topAnchor.constraint(equalTo: introDescriptionLabel.bottomAnchor, constant: .largeSpacing),
-            switchStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .largeSpacing),
-            switchStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.largeSpacing),
+            imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: .mediumLargeSpacing),
+            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
 
-            descriptionStackView.topAnchor.constraint(equalTo: switchStackView.bottomAnchor, constant: .largeSpacing),
-            descriptionStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
-            descriptionStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
-            descriptionStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            recommendationToggleSwitchView.topAnchor.constraint(equalTo: introDescriptionLabel.bottomAnchor, constant: .largeSpacing),
+            recommendationToggleSwitchView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
+            recommendationToggleSwitchView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
+
+            commercialToggleSwitchView.topAnchor.constraint(equalTo: recommendationToggleSwitchView.bottomAnchor, constant: .mediumLargeSpacing),
+            commercialToggleSwitchView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
+            commercialToggleSwitchView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
+
+            improveToggleSwitchView.topAnchor.constraint(equalTo: commercialToggleSwitchView.bottomAnchor, constant: .mediumLargeSpacing),
+            improveToggleSwitchView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
+            improveToggleSwitchView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
+
+            descriptionLabel.topAnchor.constraint(equalTo: improveToggleSwitchView.bottomAnchor, constant: .largeSpacing),
+            descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
+            descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
+            descriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
 
             doneButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -.largeSpacing),
             doneButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: .veryLargeSpacing),
@@ -227,29 +171,20 @@ public class ConsentSummaryView: UIView {
     // MARK: - Private actions
 
     @objc private func doneButtonTapped(button: Button) {
+        delegate?.consentSummaryView(self, didSelectDoneButton: button)
     }
 
-    @objc private func recommendationsSwitchChangedState(sender: UISwitch) {
-        if sender.isOn {
-            print("Recommendations switch is on")
-        } else {
-            print("Recommendations switch is off")
-        }
+    private func setupToggleSwitchView() -> ToggleSwitchView {
+        let view = ToggleSwitchView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }
+}
 
-    @objc private func commercialSwitchChangedState(sender: UISwitch) {
-        if sender.isOn {
-            print("Commercial switch is on")
-        } else {
-            print("Commercial switch is off")
-        }
-    }
+// MARK: - ToggleSwitchDelegate
 
-    @objc private func improveSwitchChangedState(sender: UISwitch) {
-        if sender.isOn {
-            print("Improve FINN switch is on")
-        } else {
-            print("Improve FINN switch is off")
-        }
+extension ConsentSummaryView: ToggleSwitchDelegate {
+    public func toggleSwitch(_ toggleSwitchView: ToggleSwitchView, didChangeValueFor toggleSwitch: UISwitch) {
+        delegate?.consentSummaryView(self, switchStateDidChange: toggleSwitch)
     }
 }
