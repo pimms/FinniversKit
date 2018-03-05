@@ -97,7 +97,7 @@ public class ToggleSwitchView: UIView {
 
     // MARK: - Private actions
 
-    @objc func switchChangedState(_ sender: UISwitch) {
+    @objc private func switchChangedState(_ sender: UISwitch) {
         delegate?.toggleSwitch(self, didChangeValueFor: sender)
 
         guard let model = model else {
@@ -111,5 +111,9 @@ public class ToggleSwitchView: UIView {
                 self?.descriptionLabel.text = model.offDescriptionText
             }
         }, completion: nil)
+    }
+
+    public func setOn(_ on: Bool, animated: Bool = true) {
+        mySwitch.setOn(on, animated: animated)
     }
 }
