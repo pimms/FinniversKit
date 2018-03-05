@@ -7,7 +7,7 @@ import UIKit
 // MARK: - ConsentPageViewsDelegate
 
 public protocol ConsentSummaryViewDelegate: NSObjectProtocol {
-    func consentSummaryView(_ consentSummaryView: ConsentSummaryView, switchStateDidChange switch: UISwitch)
+    func consentSummaryView(_ consentSummaryView: ConsentSummaryView, switchStateDidChange toggleSwitch: UISwitch)
     func consentSummaryView(_ consentSummaryView: ConsentSummaryView, didSelectDoneButton button: Button)
 }
 
@@ -87,13 +87,11 @@ public class ConsentSummaryView: UIView {
 
             titleLabel.text = model.title
             introDescriptionLabel.text = model.introDescription
-            recommendationToggleSwitchView.model = model.recommendationModel
-            recommendationToggleSwitchView.setOn(true)
-
-            commercialToggleSwitchView.model = model.commercialModel
-            improveToggleSwitchView.model = model.improveModel
             descriptionLabel.text = model.description
             doneButton.setTitle(model.doneButtonTitle, for: .normal)
+            recommendationToggleSwitchView.model = model.recommendationModel
+            commercialToggleSwitchView.model = model.commercialModel
+            improveToggleSwitchView.model = model.improveModel
         }
     }
 
@@ -177,6 +175,7 @@ public class ConsentSummaryView: UIView {
     private func setupToggleSwitchView() -> ToggleSwitchView {
         let view = ToggleSwitchView()
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.delegate = self
         return view
     }
 }

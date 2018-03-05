@@ -53,6 +53,7 @@ public class ToggleSwitchView: UIView {
             }
 
             headerLabel.text = model.headerText
+            mySwitch.setOn(model.initialStateOfSwitch, animated: true)
 
             if mySwitch.isOn {
                 descriptionLabel.text = model.onDescriptionText
@@ -95,7 +96,7 @@ public class ToggleSwitchView: UIView {
         ])
     }
 
-    // MARK: - Private actions
+    // MARK: - Actions
 
     @objc private func switchChangedState(_ sender: UISwitch) {
         delegate?.toggleSwitch(self, didChangeValueFor: sender)
@@ -111,9 +112,5 @@ public class ToggleSwitchView: UIView {
                 self?.descriptionLabel.text = model.offDescriptionText
             }
         }, completion: nil)
-    }
-
-    public func setOn(_ on: Bool, animated: Bool = true) {
-        mySwitch.setOn(on, animated: animated)
     }
 }
