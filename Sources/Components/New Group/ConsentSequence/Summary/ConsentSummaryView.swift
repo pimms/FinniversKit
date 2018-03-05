@@ -160,7 +160,7 @@ public class ConsentSummaryView: UIView {
             descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
             descriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
 
-            doneButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -.largeSpacing),
+            doneButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -.veryLargeSpacing),
             doneButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: .veryLargeSpacing),
             doneButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -.veryLargeSpacing),
         ])
