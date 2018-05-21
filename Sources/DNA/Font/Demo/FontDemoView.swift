@@ -30,8 +30,9 @@ public class FontDemoView: UIView {
             FontItem(font: .title2, title: "title2"),
             FontItem(font: .title3, title: "title3"),
             FontItem(font: .title4, title: "title4"),
-            FontItem(font: .title5, title: "title5"),
             FontItem(font: .body, title: "body"),
+            FontItem(font: .caption, title: "caption"),
+            FontItem(font: .title5, title: "title5"),
             FontItem(font: .detail, title: "detail"),
         ]
     }()

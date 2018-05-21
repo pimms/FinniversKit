@@ -12,7 +12,7 @@ enum FontType: String {
 }
 
 public extension UIFont {
-    /// FINNTypeWebStrippet-Medium with a size of 36 scaled for UIFontTextStyle.title1
+    /// FINNTypeWebStrippet-Medium with a size of 34 scaled for UIFontTextStyle.title1
     /// ## Usage:
     /// - It should only be used one T1 and it should be the first text element that catches the users attention.
     /// - It shall give the user an overview of which page he or she is located.
@@ -20,7 +20,7 @@ public extension UIFont {
     public static var title1: UIFont {
         registerCustomFonts()
 
-        let font = UIFont(name: FontType.medium.rawValue, size: 36.0)!
+        let font = UIFont(name: FontType.medium.rawValue, size: 34.0)!
         return font.scaledFont(forTextStyle: .title1)
     }
 
@@ -37,7 +37,7 @@ public extension UIFont {
         return font.scaledFont(forTextStyle: .title2)
     }
 
-    /// FINNTypeWebStrippet-Light with a size of 22.5 scaled for UIFontTextStyle.title3
+    /// FINNTypeWebStrippet-Light with a size of 22 scaled for UIFontTextStyle.title3
     ///
     /// ## Usage:
     /// - If a T2 have more sublevels, you can use T3.
@@ -45,44 +45,55 @@ public extension UIFont {
     public static var title3: UIFont {
         registerCustomFonts()
 
-        let font = UIFont(name: FontType.light.rawValue, size: 22.5)!
+        let font = UIFont(name: FontType.light.rawValue, size: 22.0)!
         return font.scaledFont(forTextStyle: .title3)
     }
 
-    /// FINNTypeWebStrippet-Medium with a size of 18 scaled for UIFontTextStyle.headline
+    /// FINNTypeWebStrippet-Medium with a size of 16 scaled for UIFontTextStyle.headline
     ///
     /// ## Usage:
     /// - This have the same size as the body text, but is always bolded (Medium) to differenciate them.
     public static var title4: UIFont {
         registerCustomFonts()
 
-        let font = UIFont(name: FontType.medium.rawValue, size: 18.0)!
+        let font = UIFont(name: FontType.medium.rawValue, size: 16.0)!
         return font.scaledFont(forTextStyle: .headline)
     }
 
-    /// FINNTypeWebStrippet-Medium with a size of 14 scaled for UIFontTextStyle.callout
-    ///
-    /// ## Usage:
-    /// - Used for small, bold headlines.
-    public static var title5: UIFont {
-        registerCustomFonts()
-
-        let font = UIFont(name: FontType.medium.rawValue, size: 14.0)!
-        return font.scaledFont(forTextStyle: .callout)
-    }
-
-    /// FINNTypeWebStrippet-Light with a size of 18 scaled for UIFontTextStyle.body
+    /// FINNTypeWebStrippet-Light with a size of 16 scaled for UIFontTextStyle.body
     ///
     /// ## Usage:
     /// - Regular text below titles is called body text and is weighted Medium.
     public static var body: UIFont {
         registerCustomFonts()
 
-        let font = UIFont(name: FontType.light.rawValue, size: 18.0)!
+        let font = UIFont(name: FontType.light.rawValue, size: 16.0)!
         return font.scaledFont(forTextStyle: .body)
     }
 
-    /// FINNTypeWebStrippet-Light with a size of 14 scaled for UIFontTextStyle.footnote
+    /// FINNTypeWebStrippet-Light with a size of 14 scaled for UIFontTextStyle.callout
+    ///
+    /// ## Usage:
+    /// - Used for captions.
+    public static var caption: UIFont {
+        registerCustomFonts()
+
+        let font = UIFont(name: FontType.light.rawValue, size: 14.0)!
+        return font.scaledFont(forTextStyle: .caption1)
+    }
+
+    /// FINNTypeWebStrippet-Medium with a size of 12 scaled for UIFontTextStyle.callout
+    ///
+    /// ## Usage:
+    /// - Used for small, bold headlines.
+    public static var title5: UIFont {
+        registerCustomFonts()
+
+        let font = UIFont(name: FontType.bold.rawValue, size: 12.0)!
+        return font.scaledFont(forTextStyle: .callout)
+    }
+
+    /// FINNTypeWebStrippet-Light with a size of 12 scaled for UIFontTextStyle.footnote
     ///
     /// ## Usage:
     /// - Less important information can be shown as detail text.
@@ -92,7 +103,7 @@ public extension UIFont {
     public static var detail: UIFont {
         registerCustomFonts()
 
-        let font = UIFont(name: FontType.light.rawValue, size: 14.0)!
+        let font = UIFont(name: FontType.regular.rawValue, size: 12.0)!
         return font.scaledFont(forTextStyle: .footnote)
     }
 
