@@ -165,8 +165,19 @@ public class ToastView: UIView {
     public func presentFromBottom(view: UIView, animateOffset: CGFloat, timeOut: Double? = nil) {
         setupToastConstraint(for: view)
 
+        let transform: CGAffineTransform
+        if let _ = self.superview as? UIScrollView {
+            if #available(iOS 11.0, *) {
+                transform = self.transform.translatedBy(x: 0, y: -(frame.height + animateOffset))
+            } else {
+                transform = self.transform.translatedBy(x: 0, y: -(frame.height + animateOffset))
+            }
+        } else {
+            transform = self.transform.translatedBy(x: 0, y: -(frame.height + animateOffset))
+        }
+
         UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseInOut, animations: {
-            self.transform = self.transform.translatedBy(x: 0, y: -(self.frame.height + animateOffset))
+            self.transform = transform
         })
         if let timeOut = timeOut {
             dismissToast(after: timeOut)
@@ -189,11 +200,27 @@ public class ToastView: UIView {
 
         translatesAutoresizingMaskIntoConstraints = false
 
-        NSLayoutConstraint.activate([
-            leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            topAnchor.constraint(equalTo: view.bottomAnchor),
-        ])
+        if let scrollView = view as? UIScrollView {
+            if #available(iOS 11.0, *) {
+                NSLayoutConstraint.activate([
+                    leadingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.leadingAnchor),
+                    trailingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.trailingAnchor),
+                    topAnchor.constraint(equalTo: scrollView.frameLayoutGuide.bottomAnchor),
+                ])
+            } else {
+                NSLayoutConstraint.activate([
+                    leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                    trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                    topAnchor.constraint(equalTo: view.topAnchor),
+                ])
+            }
+        } else {
+            NSLayoutConstraint.activate([
+                leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                topAnchor.constraint(equalTo: view.bottomAnchor),
+            ])
+        }
 
         view.layoutIfNeeded()
     }
