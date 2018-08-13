@@ -10,7 +10,7 @@ class DemoComponentsTests: FBSnapshotTestCase {
 
     override func setUp() {
         super.setUp()
-        recordMode = false
+        recordMode = true
     }
 
     // MARK: - Components
@@ -55,6 +55,9 @@ class DemoComponentsTests: FBSnapshotTestCase {
     // MARK: Button
     func testBroadcastContainerDemoView() {
         let controller = ViewController<BroadcastContainerDemoView>()
+        if let broadcastContainerDemoView = controller.view as? BroadcastContainerDemoView {
+            broadcastContainerDemoView.animationDuration = 0
+        }
         FBSnapshotVerifyView(controller.view)
     }
 

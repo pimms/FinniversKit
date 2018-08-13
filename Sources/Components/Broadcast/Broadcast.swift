@@ -195,7 +195,7 @@ private extension Broadcast {
         setClampedHeight(active: false)
 
         if animated {
-            UIView.animate(withDuration: 0.3, animations: { [weak self] in
+            UIView.animate(withDuration: 0, animations: { [weak self] in
                 self?.superview?.layoutIfNeeded()
             }) { _ in
                 completion?()
@@ -210,7 +210,7 @@ private extension Broadcast {
         setClampedHeight(active: true)
 
         if animated {
-            UIView.animate(withDuration: 0.3, animations: { [weak self] in
+            UIView.animate(withDuration: 0, animations: { [weak self] in
                 self?.superview?.layoutIfNeeded()
             }) { [weak self] _ in
                 self?.messageTextView.text = ""

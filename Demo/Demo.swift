@@ -120,6 +120,9 @@ enum Sections: String {
         case .components:
             let selectedView = ComponentViews.all[indexPath.row]
             viewController = selectedView.viewController
+            if let broadcastContainerDemoView = viewController.view as? BroadcastContainerDemoView {
+                broadcastContainerDemoView.animationDuration = 0
+            }
         case .recycling:
             let selectedView = RecyclingViews.all[indexPath.row]
             viewController = selectedView.viewController

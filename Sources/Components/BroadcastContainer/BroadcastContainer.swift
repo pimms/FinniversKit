@@ -77,8 +77,11 @@ public final class BroadcastContainer: UIView {
         return view
     }()
 
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
+    var animationDuration: Double = 0.3
+
+    public init(animationDuration: Double = 0.3) {
+        super.init(frame: .zero)
+
         setup()
     }
 
@@ -110,12 +113,12 @@ public extension BroadcastContainer {
 
         if let delegate = delegate {
             delegate.broadcastContainer(self, willDisplayBroadcastsWithContainerSize: intrinsicContentSize, commitToDisplaying: {
-                UIView.animate(withDuration: 0.3, animations: { [weak self] in
+                UIView.animate(withDuration: 0, animations: { [weak self] in
                     self?.contentView.arrangedSubviews.forEach { $0.isHidden = false }
                 })
             })
         } else {
-            UIView.animate(withDuration: 0.3, animations: { [weak self] in
+            UIView.animate(withDuration: 0, animations: { [weak self] in
                 self?.contentView.arrangedSubviews.forEach { $0.isHidden = false }
             })
         }
@@ -240,14 +243,14 @@ extension BroadcastContainer: BroadcastDelegate {
 
             let broadcastIndex = contentView.arrangedSubviews.index(of: broadcast) ?? 0
             delegate.broadcastContainer(self, willDismissBroadcastAtIndex: broadcastIndex, withNewContainerSize: newContainerSize, commitToDismissal: {
-                UIView.animate(withDuration: 0.2, animations: {
+                UIView.animate(withDuration: 0, animations: {
                     broadcast.isHidden = true
                 }, completion: { [weak self] _ in
                     self?.remove(broadcast)
                 })
             })
         } else {
-            UIView.animate(withDuration: 0.2, animations: {
+            UIView.animate(withDuration: 0, animations: {
                 broadcast.isHidden = true
             }, completion: { [weak self] _ in
                 self?.remove(broadcast)

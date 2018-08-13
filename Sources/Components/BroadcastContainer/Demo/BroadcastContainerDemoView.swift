@@ -16,8 +16,10 @@ public class BroadcastContainerDemoView: UIView, Lifecyclable {
         return tableView
     }()
 
+    public var animationDuration: CGFloat = 0.3
+
     private lazy var tableHeaderView: BroadcastContainer = {
-        let view = BroadcastContainer(frame: .zero)
+        let view = BroadcastContainer()
 
         return view
     }()
@@ -27,7 +29,7 @@ public class BroadcastContainerDemoView: UIView, Lifecyclable {
         BroadcastMessage(id: 2, message: "Their containers should have the colour \"Banana\" and associated text. An exclamation mark icon is used if it is very important that the user gets this info. They appear under the banners and pushes the other content down. It scrolls with the content.\\n\nBroadcasts can also contain <a href=\"http://www.finn.no\">HTML links</a>."),
     ]
 
-    func viewDidAppear() {
+    func viewDidLoad() {
         setup()
         displayBroadcastContainer()
     }
