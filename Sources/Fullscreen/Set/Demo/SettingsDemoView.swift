@@ -24,6 +24,9 @@ class SettingsDemoView: UIView {
         super.init(frame: frame)
 
         setupSubviews()
+
+        let network = ConsentNetworking()
+        network.givenConsents(forUser: "")
     }
 
     required init?(coder aDecoder: NSCoder) {
