@@ -138,7 +138,7 @@ public enum FullscreenViews: String {
     case reviewView
     case registerView
     case loginView
-    case settingsView
+    case consentView
 
     public static var all: [FullscreenViews] {
         return [
@@ -149,7 +149,7 @@ public enum FullscreenViews: String {
             .reviewView,
             .registerView,
             .loginView,
-            .settingsView
+            .consentView
         ]
     }
 
@@ -169,8 +169,8 @@ public enum FullscreenViews: String {
             return ViewController<RegisterViewDemoView>()
         case .loginView:
             return ViewController<LoginViewDemoView>()
-        case .settingsView:
-            return ViewController<SettingsDemoView>()
+        case .consentView:
+            return ViewController<ConsentDemoView>()
         }
     }
 }
