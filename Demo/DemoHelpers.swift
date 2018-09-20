@@ -41,6 +41,8 @@ public struct ContainmentOptions: OptionSet {
             switch screens {
             case .consentView:
                 rawValue = ContainmentOptions.navigationController.rawValue
+            case .consentDetailView:
+                rawValue = ContainmentOptions.navigationController.rawValue
             default: return nil
             }
         case .components:

@@ -12,7 +12,7 @@ public struct Section {
         self.title = title
         self.items = items
     }
-
+}
 
 public class ConsentView: UITableView {
 
@@ -24,7 +24,7 @@ public class ConsentView: UITableView {
         translatesAutoresizingMaskIntoConstraints = false
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 

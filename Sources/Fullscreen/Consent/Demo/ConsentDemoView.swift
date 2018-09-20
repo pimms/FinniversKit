@@ -15,8 +15,7 @@ class ConsentDemoView: UIView {
                                              ConsentViewCellModel(title: "Motta viktig informasjon fra FINN", state: .on),
                                              ConsentViewCellModel(title: "Smart reklame", state: nil),
                                              ConsentViewCellModel(title: "Last ned dine data", state: nil),
-                                             ConsentViewCellModel(title: "Slett meg som bruker", state: nil)])
-    ]
+                                             ConsentViewCellModel(title: "Slett meg som bruker", state: nil)])]
 
     var dataSource: ConsentDataSource?
 
