@@ -55,7 +55,7 @@ public struct WishListFactory {
         return [
             "Aerodynamisk sykkel",
             "Stuebord",
-            "Marmor pidestal",
+            "Marmor pidestal fra 50-tallet med utforminger gjort for hånd",
             "Fuglebur",
             "Moderne sengetøy",
         ]
