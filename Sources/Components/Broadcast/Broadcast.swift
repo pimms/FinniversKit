@@ -22,7 +22,7 @@ public final class Broadcast: UIStackView {
     private weak var scrollView: UIScrollView?
     private var topConstraint: NSLayoutConstraint?
     private var animationDuration = 0.3
-    private var messages: Set<BroadcastMessage> = []
+    private var messages: [BroadcastMessage] = []
 
     // MARK: - Setup
 
@@ -40,9 +40,9 @@ public final class Broadcast: UIStackView {
 
     // MARK: - Public methods
 
-    public func presentMessages(_ messages: Set<BroadcastMessage>, in view: UIView? = nil, animated: Bool = true) {
+    public func presentMessages(_ messages: [BroadcastMessage], in view: UIView? = nil, animated: Bool = true) {
         guard superview == nil else {
-            self.messages.formUnion(messages)
+            self.messages.append(contentsOf: messages)// make sure it's only unique items
             add(messages, animated: animated)
             return
         }
@@ -65,15 +65,15 @@ public final class Broadcast: UIStackView {
         topConstraint = topAnchor.constraint(equalTo: view.topAnchor)
         topConstraint?.isActive = true
 
-        self.messages.formUnion(messages)
+        self.messages.append(contentsOf: messages)
         add(messages, animated: animated)
     }
 
-    public func removeMessages(_ messages: Set<BroadcastMessage>) -> Set<BroadcastMessage> {
+    public func removeMessages(_ messages: [BroadcastMessage]) -> [BroadcastMessage] {
         guard !messages.isEmpty else { return [] }
         guard let items = arrangedSubviews as? [BroadcastItem] else { return [] }
 
-        let messagesToRemove = self.messages.intersection(messages)
+        let messagesToRemove = messages.filter(messages.contains)
 
         let itemsToRemove = items.filter { (item) -> Bool in
             return messagesToRemove.contains(item.message)
@@ -83,7 +83,8 @@ public final class Broadcast: UIStackView {
             remove(item, animated: false)
         }
 
-        self.messages.subtract(messagesToRemove)
+        self.messages = self.messages.filter { !messagesToRemove.contains($0) }
+
         return messagesToRemove
     }
 
@@ -127,7 +128,7 @@ private extension Broadcast {
         }
     }
 
-    func add(_ messages: Set<BroadcastMessage>, animated: Bool) {
+    func add(_ messages: [BroadcastMessage], animated: Bool) {
         guard let superview = superview else { return }
 
         var contentOffset: CGFloat = 0
@@ -167,7 +168,7 @@ private extension Broadcast {
         }
     }
 
-    func insert(_ messages: Set<BroadcastMessage>) {
+    func insert(_ messages: [BroadcastMessage]) {
         for message in messages {
             let item = BroadcastItem(message: message)
             item.delegate = self
