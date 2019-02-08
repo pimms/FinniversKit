@@ -17,6 +17,7 @@ class IconTitleCellDemoView: UIView {
     private var viewModels = [
         ViewModel(title: "Favoritter", icon: UIImage(named: .favouriteAdded), iconTintColor: .licorice, hasChevron: true),
         ViewModel(title: "Lagrede søk", icon: UIImage(named: .search), iconTintColor: .licorice, hasChevron: false),
+        ViewModel(title: "Ønskeliste", icon: nil, iconTintColor: nil, hasChevron: true),
         ViewModel(title: "Varslingsinnstillinger", icon: nil, iconTintColor: nil, hasChevron: true),
         ViewModel(title: "Personvernerklæring", icon: nil, iconTintColor: nil, hasChevron: true),
         ViewModel(title: "Innstillinger for personvern", icon: nil, iconTintColor: nil, hasChevron: false),
