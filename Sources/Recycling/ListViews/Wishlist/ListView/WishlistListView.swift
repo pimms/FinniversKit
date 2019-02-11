@@ -63,7 +63,7 @@ public class WishlistListView: UIView {
 
     // MARK: - Public methods
 
-    func reloadData() {
+    public func reloadData() {
         tableView.reloadData()
     }
 }
