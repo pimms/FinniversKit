@@ -61,5 +61,5 @@ extension WishlistListViewDemoView: WishlistListViewDataSource {
 }
 
 extension WishlistListViewDemoView: WishlistListViewDelegate {
-
+    func wishlistListView(_ wishlistListView: WishlistListView, didSelectRowAt indexPath: IndexPath) { }
 }

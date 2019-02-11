@@ -13,7 +13,7 @@ public protocol WishlistListViewDataSource: class {
 }
 
 public protocol WishlistListViewDelegate: class {
-
+    func wishlistListView(_ wishlistListView: WishlistListView, didSelectRowAt indexPath: IndexPath)
 }
 
 public class WishlistListView: UIView {
@@ -37,7 +37,7 @@ public class WishlistListView: UIView {
 
     // MARK: - Init
 
-    init(dataSource: WishlistListViewDataSource, delegate: WishlistListViewDelegate) {
+    public init(dataSource: WishlistListViewDataSource, delegate: WishlistListViewDelegate) {
         super.init(frame: .zero)
         self.dataSource = dataSource
         self.delegate = delegate
@@ -63,7 +63,9 @@ public class WishlistListView: UIView {
 }
 
 extension WishlistListView: UITableViewDelegate {
-
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate?.wishlistListView(self, didSelectRowAt: indexPath)
+    }
 }
 
 extension WishlistListView: UITableViewDataSource {
