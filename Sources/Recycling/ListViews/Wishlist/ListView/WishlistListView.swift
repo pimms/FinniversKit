@@ -60,6 +60,12 @@ public class WishlistListView: UIView {
         addSubview(tableView)
         tableView.fillInSuperview()
     }
+
+    // MARK: - Public methods
+
+    func reloadData() {
+        tableView.reloadData()
+    }
 }
 
 extension WishlistListView: UITableViewDelegate {
