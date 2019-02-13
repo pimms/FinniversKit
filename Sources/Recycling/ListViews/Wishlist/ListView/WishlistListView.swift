@@ -6,7 +6,7 @@ import UIKit
 
 public protocol WishlistListViewDataSource: class {
     func numberOfItemsInWishlistListView(_ wishlistListView: WishlistListView) -> Int
-    func wishlistListView(_ wishlistListView: WishlistListView, modelAtIndex index: Int) -> WishlistListViewModel
+    func wishlistListView(_ wishlistListView: WishlistListView, modelAtIndex index: Int) -> WishlistListViewModel?
     func wishlistListView(_ wishlistListView: WishlistListView,
                           loadImageForModel model: WishlistListViewModel,
                           completion: @escaping (WishlistListViewModel, UIImage?) -> Void)

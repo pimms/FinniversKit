@@ -55,8 +55,8 @@ extension WishlistListViewDemoView: WishlistListViewDataSource {
         return wishlist.count
     }
 
-    func wishlistListView(_ wishlistListView: WishlistListView, modelAtIndex index: Int) -> WishlistListViewModel {
-        return wishlist[index]
+    func wishlistListView(_ wishlistListView: WishlistListView, modelAtIndex index: Int) -> WishlistListViewModel? {
+        return wishlist[safe: index]
     }
 }
 
