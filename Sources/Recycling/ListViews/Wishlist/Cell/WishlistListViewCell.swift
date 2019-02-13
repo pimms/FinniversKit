@@ -186,6 +186,20 @@ public class WishlistListViewCell: UITableViewCell {
         }
     }
 
+    // MARK: - Overridden methods
+
+    override public func prepareForReuse() {
+        super.prepareForReuse()
+
+        adImageView.image = self.defaultImage
+        adImageView.backgroundColor = .toothPaste
+        accessibilityLabel = nil
+        titleLabel.text = nil
+        publishDateLabel.text = nil
+        locationLabel.text = nil
+        priceLabel.text = nil
+    }
+
     // MARK: - Private methods
 
     private func loadImage() {

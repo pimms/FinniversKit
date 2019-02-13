@@ -17,7 +17,7 @@ struct WishlistAdItem: WishlistListViewModel {
 class WishlistAdFactory {
 
     static func create() -> [WishlistAdItem] {
-        var wishlistAds = [WishlistAdItem]()
+        var uniqueAds = [WishlistAdItem]()
 
         for index in 0 ..< 4 {
             let ad = WishlistAdItem(adId: adIds[index],
@@ -27,10 +27,16 @@ class WishlistAdFactory {
                                     imageUrl: imageUrls[index],
                                     price: prices[index],
                                     location: locations[index])
-            wishlistAds.append(ad)
+            uniqueAds.append(ad)
         }
 
-        return wishlistAds
+        var wishlist = [WishlistAdItem]()
+        for _ in 0 ..< 20 {
+            let ad = uniqueAds[Int(arc4random()) % uniqueAds.count]
+            wishlist.append(ad)
+        }
+
+        return wishlist
     }
 
     private static let adIds: [Int64] = [
