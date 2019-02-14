@@ -1,8 +1,4 @@
 //
-//  WishlistTableViewCell.swift
-//  FinniversKit
-//
-//  Created by Stien, Joakim on 08/02/2019.
 //  Copyright © 2019 FINN AS. All rights reserved.
 //
 
@@ -16,8 +12,19 @@ public class WishlistListViewCell: UITableViewCell {
 
     // MARK: - Private static properties
 
+    private lazy var imageAspectRatio: CGFloat = {
+        switch UIDevice.current.userInterfaceIdiom {
+        case .pad:
+            return 2.0
+        default:
+            return 1.75
+        }
+    }()
+
     static let imageCornerRadius: CGFloat = 3.0
     static let imageHeight: CGFloat = 220.0
+
+
 
     // MARK: - Public properties
     var loadingColor: UIColor = .clear
@@ -126,7 +133,7 @@ public class WishlistListViewCell: UITableViewCell {
             adImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
             adImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: .mediumLargeSpacing),
             adImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.mediumLargeSpacing),
-            adImageView.heightAnchor.constraint(equalToConstant: WishlistListViewCell.imageHeight),
+            adImageView.heightAnchor.constraint(equalTo: adImageView.widthAnchor, multiplier: 1.0 / imageAspectRatio),
 
             publishDateLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
             publishDateLabel.topAnchor.constraint(equalTo: adImageView.bottomAnchor, constant: .mediumSpacing),

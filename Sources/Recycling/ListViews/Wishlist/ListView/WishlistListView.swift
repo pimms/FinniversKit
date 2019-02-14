@@ -80,6 +80,8 @@ extension WishlistListView: UITableViewDataSource {
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // TODO: Handle prefetching of images
+
         let cell = tableView.dequeue(WishlistListViewCell.self, for: indexPath)
         cell.delegate = self
 
