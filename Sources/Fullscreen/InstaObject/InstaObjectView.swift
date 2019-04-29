@@ -4,7 +4,15 @@
 
 import UIKit
 
+public protocol InstaObjectViewDataSource: AnyObject {
+    func instaObjectView(_ view: InstaObjectView)
+}
+
 public class InstaObjectView: UIView {
+
+    // MARK: - Public properties
+
+    public weak var dataSource: InstaObjectViewDataSource?
 
     // MARK: - Init
 
