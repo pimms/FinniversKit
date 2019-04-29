@@ -205,6 +205,8 @@
 		8962DA5E2276CBC700A1BC78 /* InstaObjectDemoStateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8962DA5D2276CBC700A1BC78 /* InstaObjectDemoStateController.swift */; };
 		8962DA612276E1F700A1BC78 /* InstaObjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8962DA5F2276D03700A1BC78 /* InstaObjectViewController.swift */; };
 		8962DA642276E6B500A1BC78 /* InstaObjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8962DA622276E3AB00A1BC78 /* InstaObjectViewModel.swift */; };
+		8962DA6722771AF500A1BC78 /* InstaObjectDemoSplitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8962DA6622771AF500A1BC78 /* InstaObjectDemoSplitter.swift */; };
+		8962DA6922771B3B00A1BC78 /* InstaObjectDummyBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8962DA6822771B3B00A1BC78 /* InstaObjectDummyBaseModel.swift */; };
 		899D0BF6222D4B3400794DEC /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899D0BF5222D4B3400794DEC /* ArrayExtensions.swift */; };
 		899D0BF8222D58D700794DEC /* FullscreenGalleryOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899D0BF7222D58D700794DEC /* FullscreenGalleryOverlayView.swift */; };
 		89A7A63D225337B50053D33B /* NativeAdvertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A7A63C225337B50053D33B /* NativeAdvertViewModel.swift */; };
@@ -577,6 +579,8 @@
 		8962DA5D2276CBC700A1BC78 /* InstaObjectDemoStateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstaObjectDemoStateController.swift; sourceTree = "<group>"; };
 		8962DA5F2276D03700A1BC78 /* InstaObjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstaObjectViewController.swift; sourceTree = "<group>"; };
 		8962DA622276E3AB00A1BC78 /* InstaObjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstaObjectViewModel.swift; sourceTree = "<group>"; };
+		8962DA6622771AF500A1BC78 /* InstaObjectDemoSplitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstaObjectDemoSplitter.swift; sourceTree = "<group>"; };
+		8962DA6822771B3B00A1BC78 /* InstaObjectDummyBaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstaObjectDummyBaseModel.swift; sourceTree = "<group>"; };
 		899D0BF5222D4B3400794DEC /* ArrayExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
 		899D0BF7222D58D700794DEC /* FullscreenGalleryOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenGalleryOverlayView.swift; sourceTree = "<group>"; };
 		89A7A63C225337B50053D33B /* NativeAdvertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeAdvertViewModel.swift; sourceTree = "<group>"; };
@@ -1596,9 +1600,19 @@
 		8962DA5C2276CB8000A1BC78 /* InstaObject */ = {
 			isa = PBXGroup;
 			children = (
+				8962DA6522771ADB00A1BC78 /* Splitter */,
 				8962DA5D2276CBC700A1BC78 /* InstaObjectDemoStateController.swift */,
 			);
 			path = InstaObject;
+			sourceTree = "<group>";
+		};
+		8962DA6522771ADB00A1BC78 /* Splitter */ = {
+			isa = PBXGroup;
+			children = (
+				8962DA6622771AF500A1BC78 /* InstaObjectDemoSplitter.swift */,
+				8962DA6822771B3B00A1BC78 /* InstaObjectDummyBaseModel.swift */,
+			);
+			path = Splitter;
 			sourceTree = "<group>";
 		};
 		89A7A63A2253376D0053D33B /* NativeAdvert */ = {
@@ -2888,7 +2902,9 @@
 				441FE43F209A254900B04EF1 /* MarketsGridViewDemoViewHelpers.swift in Sources */,
 				14C6F7D9212324D600A7230C /* FavoritesListViewDemoView.swift in Sources */,
 				08012BF02187319A00A04F43 /* BasicCellVariationsDemoView.swift in Sources */,
+				8962DA6922771B3B00A1BC78 /* InstaObjectDummyBaseModel.swift in Sources */,
 				08D70A21218329D1003E2222 /* BasicCellDemoView.swift in Sources */,
+				8962DA6722771AF500A1BC78 /* InstaObjectDemoSplitter.swift in Sources */,
 				14DC127221593B0500326DC3 /* HorizontalSlideDemoViewController.swift in Sources */,
 				CF9AC8BC21BECE13005A0D2F /* SnowGlobeDemoView.swift in Sources */,
 				CF3D5EFC215A7215006E4D08 /* DrumMachineDemoView.swift in Sources */,
