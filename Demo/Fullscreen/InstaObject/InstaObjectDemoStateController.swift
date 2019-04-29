@@ -4,30 +4,17 @@
 
 import FinniversKit
 
-private struct DemoModel: InstaObjectViewModel {
-    let imageURLs: [URL]?
-    let imageDescriptions: [String?]?
-    let title: String
-    let priceText: String
-    let description: String?
-}
-
 class InstaObjectDemoStateController: UIViewController {
-    private let model = DemoModel(imageURLs: [
-                                    URL(string: "https://images.finncdn.no/dynamic/1600w/2019/4/vertical-5/24/4/145/775/794_1562625557.jpg")!,
-                                    URL(string: "https://images.finncdn.no/dynamic/1600w/2019/4/vertical-5/28/3/146/090/653_542084614.jpg")!,
-                                    URL(string: "https://images.finncdn.no/dynamic/1600w/2019/4/vertical-5/28/3/146/090/653_1705328036.jpg")!
-                                    ],
+    private let model = InstaObjectDummyBaseModel(
+                                  imageURLs: [
+                                      URL(string: "https://images.finncdn.no/dynamic/1600w/2019/4/vertical-5/24/4/145/775/794_1562625557.jpg")!,
+                                      URL(string: "https://images.finncdn.no/dynamic/1600w/2019/4/vertical-5/28/3/146/090/653_542084614.jpg")!,
+                                      URL(string: "https://images.finncdn.no/dynamic/1600w/2019/4/vertical-5/28/3/146/090/653_1705328036.jpg")!
+                                  ],
                                   imageDescriptions: [ "Fin sykkel", nil, "Rosa og fin, denne kan bli din!" ],
                                   title: "Flott sykkel",
                                   priceText: "Gis bort",
-                                  description: "Fin sykkel gis bort mot henting.")
-
-    let viewModel: [InstaObjectViewModel] = [
-        InstaObjectMainImageModel(title: "Flott sykkel", priceText: "Gis bort", imageUrl: URL(string: "https://images.finncdn.no/dynamic/1600w/2019/4/vertical-5/24/4/145/775/794_1562625557.jpg")!),
-        InstaObjectDescriptionModel(description: "Dette er en fin sykkel du kan sykle masse på. 10/10, du burde hente den."),
-        InstaObjectSingleImageModel(description: "Pen sykkel – har vært brukt av kongen", imageUrl: URL(string: "https://images.finncdn.no/dynamic/1600w/2019/4/vertical-5/28/3/146/090/653_542084614.jpg")!)
-    ]
+                                  description: "Fin sykkel gis bort mot henting.\nDen er ganske fin.\n\nSykkelen kan ikke trilles, den må dyttes.\n\nGrønt hus.\n\nFlink bisk.")
 
     // MARK: - Init
 
@@ -37,6 +24,9 @@ class InstaObjectDemoStateController: UIViewController {
 
     init() {
         super.init(nibName: nil, bundle: nil)
+
+        let splitter = InstaObjectDemoSplitter()
+        let viewModel = splitter.splitDummyModel(model)
 
         let viewController = InstaObjectViewController()
         viewController.delegate = self

@@ -15,10 +15,10 @@ public class InstaObjectDescriptionModel: InstaObjectViewModel {
 }
 
 public class InstaObjectSingleImageModel: InstaObjectViewModel {
-    public let description: String
+    public let description: String?
     public let imageUrl: URL
 
-    public init(description: String, imageUrl: URL) {
+    public init(description: String?, imageUrl: URL) {
         self.description = description
         self.imageUrl = imageUrl
     }
