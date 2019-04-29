@@ -4,9 +4,14 @@
 
 import UIKit
 
+public protocol InstaObjectViewControllerDelegate: AnyObject {
+    func downloadThatImageBoy(url: URL, completion: @escaping (UIImage?) -> Void)
+}
+
 public class InstaObjectViewController: UIViewController {
 
-    var viewModels: [InstaObjectSectionViewModel] = []
+    public weak var delegate: InstaObjectViewControllerDelegate?
+    public var viewModels: [InstaObjectViewModel] = []
 
     // MARK: - Init
 
@@ -14,7 +19,8 @@ public class InstaObjectViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    init() {
+    public init() {
         super.init(nibName: nil, bundle: nil)
+        view.backgroundColor = .milk
     }
 }
