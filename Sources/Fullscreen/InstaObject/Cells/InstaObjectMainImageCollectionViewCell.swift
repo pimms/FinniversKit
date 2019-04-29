@@ -80,8 +80,7 @@ public class InstaObjectMainImageCollectionViewCell: UICollectionViewCell {
             self?.imageView.image = image
         })
 
-        let attrs: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.milk, .strokeColor: UIColor.stone, .strokeWidth: -3.0]
-        titleLabel.attributedText = NSAttributedString(string: viewModel.title, attributes: attrs)
-        priceLabel.attributedText = NSAttributedString(string: viewModel.priceText, attributes: attrs)
+        titleLabel.attributedText = NSAttributedString(string: viewModel.title, attributes: [.foregroundColor: UIColor.milk, .strokeColor: UIColor.stone, .strokeWidth: -3.0])
+        priceLabel.attributedText = NSAttributedString(string: viewModel.priceText, attributes: [.foregroundColor: UIColor.milk, .strokeColor: UIColor.stone, .strokeWidth: -3.5])
     }
 }
