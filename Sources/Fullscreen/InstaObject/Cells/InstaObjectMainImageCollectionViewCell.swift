@@ -4,7 +4,7 @@ public class InstaObjectMainImageCollectionViewCell: UICollectionViewCell {
 
     // MARK: - Public properties
 
-    weak var imageDownloader: ImageDownloader?
+    public weak var imageDownloader: ImageDownloader?
 
     // MARK: - Private properties
 

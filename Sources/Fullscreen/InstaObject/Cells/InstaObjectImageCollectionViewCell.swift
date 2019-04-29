@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-protocol ImageDownloader: AnyObject {
+public protocol ImageDownloader: AnyObject {
     func downloadImage(forUrl url: URL, completion: @escaping (UIImage?) -> Void)
 }
 
@@ -9,7 +9,7 @@ public class InstaObjectImageCollectionViewCell: UICollectionViewCell {
 
     // MARK: - Public properties
 
-    weak var imageDownloader: ImageDownloader?
+    public weak var imageDownloader: ImageDownloader?
 
     // MARK: - Private properties
 

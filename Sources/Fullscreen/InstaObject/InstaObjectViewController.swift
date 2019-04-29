@@ -68,6 +68,14 @@ public class InstaObjectViewController: UIViewController {
     }
 }
 
+// MARK: - ImageDownloader
+
+extension InstaObjectViewController: ImageDownloader {
+    public func downloadImage(forUrl url: URL, completion: @escaping (UIImage?) -> Void) {
+        delegate?.downloadThatImageBoy(url: url, completion: completion)
+    }
+}
+
 // MARK: UICollectionView Delegate & Data Source
 
 extension InstaObjectViewController: UICollectionViewDataSource {
@@ -81,11 +89,13 @@ extension InstaObjectViewController: UICollectionViewDataSource {
         switch model {
         case let mainImageModel as InstaObjectMainImageModel:
             let cell = collectionView.dequeue(InstaObjectMainImageCollectionViewCell.self, for: indexPath)
+            cell.imageDownloader = self
             cell.configure(with: mainImageModel)
             return cell
 
         case let singleImageModel as InstaObjectSingleImageModel:
             let cell = collectionView.dequeue(InstaObjectImageCollectionViewCell.self, for: indexPath)
+            cell.imageDownloader = self
             cell.configure(with: singleImageModel)
             return cell
 
@@ -110,9 +120,9 @@ extension InstaObjectViewController: UICollectionViewDelegateFlowLayout {
 
         case let descriptionModel as InstaObjectDescriptionModel:
             let screenWidth = collectionView.bounds.size.width
-            let labelWidth = screenWidth - CGFloat.largeSpacing * 2
+            let labelWidth = screenWidth - .largeSpacing * 2
             let labelHeight = descriptionModel.description.height(withConstrainedWidth: labelWidth, font: .title3)
-            let height = labelHeight + CGFloat.veryLargeSpacing * 2
+            let height = labelHeight + .veryLargeSpacing * 2
             return CGSize(width: screenWidth, height: height)
 
         default:
