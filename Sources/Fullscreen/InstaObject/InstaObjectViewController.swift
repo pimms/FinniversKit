@@ -61,7 +61,8 @@ public class InstaObjectViewController: UIViewController {
         // Fuck the police 🚫👮‍♀️
         if #available(iOS 11.0, *) {
             let top = max(20, UIApplication.shared.keyWindow?.safeAreaInsets.top ?? 0)
-            collectionView.contentInset = UIEdgeInsets(top: -top, left: 0, bottom: 0, right: 0)
+            let bottom = UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0
+            collectionView.contentInset = UIEdgeInsets(top: -top, left: 0, bottom: -bottom, right: 0)
         } else {
             collectionView.contentInset.top = -UIApplication.shared.statusBarFrame.height
         }
