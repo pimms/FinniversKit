@@ -98,3 +98,16 @@ public class InstaObjectMainImageCollectionViewCell: UICollectionViewCell {
         priceLabel.attributedText = NSAttributedString(string: viewModel.priceText, attributes: [.foregroundColor: UIColor.milk, .strokeColor: UIColor.black.withAlphaComponent(0.6), .strokeWidth: -2.0])
     }
 }
+
+extension InstaObjectMainImageCollectionViewCell: ScrollableCell {
+    public func scrollViewDidScroll(contentOffset: CGFloat) {
+
+        if contentOffset < 0 {
+            imageView.transform = CGAffineTransform(translationX: 0, y: contentOffset)
+        } else {
+            imageView.transform = .identity
+        }
+        titleLabel.transform = CGAffineTransform(translationX: 0, y: -contentOffset * 0.2)
+        priceLabel.transform = CGAffineTransform(translationX: 0, y: -contentOffset * 0.2)
+    }
+}
