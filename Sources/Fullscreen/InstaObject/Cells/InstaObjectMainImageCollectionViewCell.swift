@@ -16,17 +16,31 @@ public class InstaObjectMainImageCollectionViewCell: UICollectionViewCell {
 
     private lazy var titleLabel: UILabel = {
         let label = UILabel(withAutoLayout: true)
-        label.font = .title1
+        label.font = UIFont.detailStrong.withSize(32)
         label.numberOfLines = 0
         label.textColor = .milk
+
+        label.layer.shadowColor = UIColor.black.cgColor
+        label.layer.shadowRadius = 3.0
+        label.layer.shadowOpacity = 0.6
+        label.layer.shadowOffset = CGSize(width: 3, height: 3)
+        label.layer.masksToBounds = false
+
         return label
     }()
 
     private lazy var priceLabel: UILabel = {
         let label = UILabel(withAutoLayout: true)
-        label.font = .title3
+        label.font = UIFont.detailStrong.withSize(22)
         label.numberOfLines = 0
         label.textColor = .milk
+
+        label.layer.shadowColor = UIColor.black.cgColor
+        label.layer.shadowRadius = 2.0
+        label.layer.shadowOpacity = 0.6
+        label.layer.shadowOffset = CGSize(width: 3, height: 3)
+        label.layer.masksToBounds = false
+
         return label
     }()
 
@@ -80,7 +94,7 @@ public class InstaObjectMainImageCollectionViewCell: UICollectionViewCell {
             self?.imageView.image = image
         })
 
-        titleLabel.attributedText = NSAttributedString(string: viewModel.title, attributes: [.foregroundColor: UIColor.milk, .strokeColor: UIColor.stone, .strokeWidth: -3.0])
-        priceLabel.attributedText = NSAttributedString(string: viewModel.priceText, attributes: [.foregroundColor: UIColor.milk, .strokeColor: UIColor.stone, .strokeWidth: -3.5])
+        titleLabel.attributedText = NSAttributedString(string: viewModel.title, attributes: [.foregroundColor: UIColor.milk, .strokeColor: UIColor.black.withAlphaComponent(0.6), .strokeWidth: -2.0])
+        priceLabel.attributedText = NSAttributedString(string: viewModel.priceText, attributes: [.foregroundColor: UIColor.milk, .strokeColor: UIColor.black.withAlphaComponent(0.6), .strokeWidth: -2.0])
     }
 }
