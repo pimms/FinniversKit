@@ -18,30 +18,38 @@ public class InstaObjectMainImageCollectionViewCell: UICollectionViewCell {
         let label = UILabel(withAutoLayout: true)
         label.font = UIFont.detailStrong.withSize(32)
         label.numberOfLines = 0
-        label.textColor = .milk
-
-        label.layer.shadowColor = UIColor.black.cgColor
-        label.layer.shadowRadius = 3.0
-        label.layer.shadowOpacity = 0.6
-        label.layer.shadowOffset = CGSize(width: 3, height: 3)
-        label.layer.masksToBounds = false
-
+        label.textColor = .licorice
         return label
+    }()
+
+    private lazy var titleLabelShadow: UIVisualEffectView = {
+        let effectView = UIVisualEffectView(withAutoLayout: true)
+        effectView.effect = UIBlurEffect(style: .prominent)
+        effectView.layer.cornerRadius = 8
+        if #available(iOS 11.0, *) {
+            effectView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
+        }
+        effectView.layer.masksToBounds = true
+        return effectView
     }()
 
     private lazy var priceLabel: UILabel = {
         let label = UILabel(withAutoLayout: true)
         label.font = UIFont.detailStrong.withSize(22)
         label.numberOfLines = 0
-        label.textColor = .milk
-
-        label.layer.shadowColor = UIColor.black.cgColor
-        label.layer.shadowRadius = 2.0
-        label.layer.shadowOpacity = 0.6
-        label.layer.shadowOffset = CGSize(width: 3, height: 3)
-        label.layer.masksToBounds = false
-
+        label.textColor = .licorice
         return label
+    }()
+
+    private lazy var priceLabelShadow: UIVisualEffectView = {
+        let effectView = UIVisualEffectView(withAutoLayout: true)
+        effectView.effect = UIBlurEffect(style: .prominent)
+        effectView.layer.cornerRadius = 6
+        if #available(iOS 11.0, *) {
+            effectView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
+        }
+        effectView.layer.masksToBounds = true
+        return effectView
     }()
 
     // MARK: - Init
@@ -62,27 +70,39 @@ public class InstaObjectMainImageCollectionViewCell: UICollectionViewCell {
     public override func prepareForReuse() {
         super.prepareForReuse()
         imageView.image = nil
-        priceLabel.attributedText = nil
-        titleLabel.attributedText = nil
+        priceLabel.text = nil
+        titleLabel.text = nil
     }
 
     // MARK: - Setup
 
     private func setup() {
         contentView.addSubview(imageView)
+        contentView.addSubview(priceLabelShadow)
         contentView.addSubview(priceLabel)
+        contentView.addSubview(titleLabelShadow)
         contentView.addSubview(titleLabel)
 
         imageView.fillInSuperview()
 
         NSLayoutConstraint.activate([
-            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .largeSpacing),
-            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.largeSpacing),
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
+            titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: contentView.trailingAnchor, constant: -.largeSpacing),
             titleLabel.bottomAnchor.constraint(equalTo: priceLabel.topAnchor, constant: -.largeSpacing),
 
-            priceLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .largeSpacing),
-            priceLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.largeSpacing),
-            priceLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -.veryLargeSpacing)
+            titleLabelShadow.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            titleLabelShadow.topAnchor.constraint(equalTo: titleLabel.topAnchor, constant: -.smallSpacing),
+            titleLabelShadow.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: .mediumLargeSpacing),
+            titleLabelShadow.bottomAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: .smallSpacing),
+
+            priceLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .mediumLargeSpacing),
+            priceLabel.trailingAnchor.constraint(lessThanOrEqualTo: contentView.trailingAnchor, constant: -.largeSpacing),
+            priceLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -.veryLargeSpacing),
+
+            priceLabelShadow.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            priceLabelShadow.topAnchor.constraint(equalTo: priceLabel.topAnchor, constant: -.smallSpacing),
+            priceLabelShadow.trailingAnchor.constraint(equalTo: priceLabel.trailingAnchor, constant: .mediumLargeSpacing),
+            priceLabelShadow.bottomAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: .smallSpacing),
         ])
     }
 
@@ -94,8 +114,8 @@ public class InstaObjectMainImageCollectionViewCell: UICollectionViewCell {
             self?.imageView.image = image
         })
 
-        titleLabel.attributedText = NSAttributedString(string: viewModel.title, attributes: [.foregroundColor: UIColor.milk, .strokeColor: UIColor.black.withAlphaComponent(0.6), .strokeWidth: -2.0])
-        priceLabel.attributedText = NSAttributedString(string: viewModel.priceText, attributes: [.foregroundColor: UIColor.milk, .strokeColor: UIColor.black.withAlphaComponent(0.6), .strokeWidth: -2.0])
+        titleLabel.text = viewModel.title
+        priceLabel.text = viewModel.priceText
     }
 }
 
@@ -107,7 +127,10 @@ extension InstaObjectMainImageCollectionViewCell: ScrollableCell {
         } else {
             imageView.transform = .identity
         }
-        titleLabel.transform = CGAffineTransform(translationX: 0, y: -contentOffset * 0.2)
-        priceLabel.transform = CGAffineTransform(translationX: 0, y: -contentOffset * 0.2)
+        let offsetTransform = CGAffineTransform(translationX: 0, y: -contentOffset * 0.4)
+        titleLabel.transform = offsetTransform
+        titleLabelShadow.transform = offsetTransform
+        priceLabel.transform = offsetTransform
+        priceLabelShadow.transform = offsetTransform
     }
 }
