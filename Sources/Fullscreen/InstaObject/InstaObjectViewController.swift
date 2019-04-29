@@ -8,6 +8,10 @@ public protocol InstaObjectViewControllerDelegate: AnyObject {
     func downloadThatImageBoy(url: URL, completion: @escaping (UIImage?) -> Void)
 }
 
+public protocol ScrollableCell: UICollectionViewCell {
+    func scrollViewDidScroll(contentOffset: CGFloat)
+}
+
 public class InstaObjectViewController: UIViewController {
 
     // MARK: - Public properties
@@ -137,5 +141,13 @@ extension InstaObjectViewController: UICollectionViewDelegateFlowLayout {
 
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
+    }
+
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        for cell in collectionView.visibleCells {
+            if let scrollableCell = cell as? ScrollableCell {
+                scrollableCell.scrollViewDidScroll(contentOffset: scrollView.contentOffset.y)
+            }
+        }
     }
 }
