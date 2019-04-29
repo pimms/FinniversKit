@@ -19,10 +19,18 @@ public class InstaObjectImageCollectionViewCell: UICollectionViewCell {
         return imageView
     }()
 
+    private lazy var blurView: UIVisualEffectView = {
+        let effectView = UIVisualEffectView(withAutoLayout: true)
+        effectView.effect = UIBlurEffect(style: .dark)
+        return effectView
+    }()
+
     private lazy var descriptionLabel: UILabel = {
         let label = UILabel(withAutoLayout: true)
         label.font = .bodyStrong
         label.numberOfLines = 0
+        label.textColor = .milk
+        label.textAlignment = .center
         return label
     }()
 
@@ -51,19 +59,31 @@ public class InstaObjectImageCollectionViewCell: UICollectionViewCell {
 
     private func setup() {
         contentView.addSubview(imageView)
+        contentView.addSubview(blurView)
         contentView.addSubview(descriptionLabel)
 
         imageView.fillInSuperview()
         NSLayoutConstraint.activate([
             descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .largeSpacing),
             descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.largeSpacing),
-            descriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -.mediumLargeSpacing)
+            descriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -.largeSpacing),
+
+            blurView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            blurView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            blurView.topAnchor.constraint(equalTo: descriptionLabel.topAnchor, constant: -.smallSpacing),
+            blurView.bottomAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: .smallSpacing)
         ])
     }
 
     // MARK: - Public methods
 
     public func configure(with viewModel: InstaObjectSingleImageModel) {
+        if let description = viewModel.description {
+            descriptionLabel.text = description
+            blurView.isHidden = false
+        } else {
+            blurView.isHidden = true
+        }
         imageDownloader?.downloadImage(forUrl: viewModel.imageUrl, completion: { [weak self] image in
             guard let image = image else { return }
             self?.imageView.image = image
