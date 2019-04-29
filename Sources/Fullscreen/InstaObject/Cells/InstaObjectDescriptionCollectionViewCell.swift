@@ -45,3 +45,12 @@ public class InstaObjectDescriptionCollectionViewCell: UICollectionViewCell {
         descriptionLabel.text = viewModel.description
     }
 }
+
+// MARK: - ScrollableCell
+
+extension InstaObjectDescriptionCollectionViewCell: ScrollableCell {
+    public func scrollViewDidScroll(contentOffset: CGFloat) {
+        let adjustedOffset = (frame.midY - contentOffset) - UIScreen.main.bounds.midY
+        // 👆 Difference between cell center and screen center. Maybe useful for something..?
+    }
+}

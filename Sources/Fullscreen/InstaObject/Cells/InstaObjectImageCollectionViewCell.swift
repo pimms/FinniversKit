@@ -41,6 +41,7 @@ public class InstaObjectImageCollectionViewCell: UICollectionViewCell {
         setup()
 
         contentView.backgroundColor = .yellow
+        clipsToBounds = true
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -88,5 +89,13 @@ public class InstaObjectImageCollectionViewCell: UICollectionViewCell {
             guard let image = image else { return }
             self?.imageView.image = image
         })
+    }
+}
+
+extension InstaObjectImageCollectionViewCell: ScrollableCell {
+    public func scrollViewDidScroll(contentOffset: CGFloat) {
+        // Uncomment these two lines to let the image stay "in place" when scrolling.
+//        let adjustedOffset = frame.minY - contentOffset
+//        imageView.transform = CGAffineTransform(translationX: 0, y: -adjustedOffset)
     }
 }
