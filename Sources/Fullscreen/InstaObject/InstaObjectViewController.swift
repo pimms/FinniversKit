@@ -15,8 +15,6 @@ public class InstaObjectViewController: UIViewController {
     public weak var delegate: InstaObjectViewControllerDelegate?
     public var viewModels: [InstaObjectViewModel] = []
 
-    public override var prefersStatusBarHidden: Bool { return true }
-
     // MARK: - UI properties
 
     private lazy var collectionView: UICollectionView = {
@@ -47,8 +45,6 @@ public class InstaObjectViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
 
         view.backgroundColor = .milk
-        automaticallyAdjustsScrollViewInsets = false
-        edgesForExtendedLayout = .all
     }
 
     public override func viewDidLoad() {

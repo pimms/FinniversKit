@@ -30,7 +30,6 @@ public class InstaObjectMainImageCollectionViewCell: UICollectionViewCell {
         return label
     }()
 
-
     // MARK: - Init
 
     public override init(frame: CGRect) {
