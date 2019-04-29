@@ -177,7 +177,7 @@ public enum FullscreenViews: String, CaseIterable {
     public var viewController: UIViewController {
         switch self {
         case .instaObjectView:
-            return DemoViewController<InstaObjectDemoView>()
+            return InstaObjectDemoStateController()
         case .frontPageView:
             return DemoViewController<FrontpageViewDemoView>()
         case .emptyView:

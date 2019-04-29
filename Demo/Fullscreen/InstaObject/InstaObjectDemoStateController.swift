@@ -12,7 +12,7 @@ private struct DemoModel: InstaObjectViewModel {
     let description: String?
 }
 
-class InstaObjectDemoView: UIView {
+class InstaObjectDemoStateController: UIViewController {
     private let model = DemoModel(imageURLs: [
                                     URL(string: "https://images.finncdn.no/dynamic/1600w/2019/4/vertical-5/24/4/145/775/794_1562625557.jpg")!,
                                     URL(string: "https://images.finncdn.no/dynamic/1600w/2019/4/vertical-5/28/3/146/090/653_542084614.jpg")!,
@@ -23,19 +23,13 @@ class InstaObjectDemoView: UIView {
                                   priceText: "Gis bort",
                                   description: "Fin sykkel gis bort mot henting.")
 
-    private lazy var instaView: InstaObjectView = {
-        let view = InstaObjectView(withAutoLayout: true)
-        return view
-    }()
-
     // MARK: - Init
 
     required init?(coder aDecoder: NSCoder) {
-        fatalError()
+        fatalError("init(coder:) has not been implemented")
     }
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        instaView.fillInSuperview()
+    init() {
+        super.init(nibName: nil, bundle: nil)
     }
 }
