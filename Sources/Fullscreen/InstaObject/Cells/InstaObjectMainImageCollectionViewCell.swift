@@ -18,6 +18,7 @@ public class InstaObjectMainImageCollectionViewCell: UICollectionViewCell {
         let label = UILabel(withAutoLayout: true)
         label.font = .title1
         label.numberOfLines = 0
+        label.textColor = .milk
         return label
     }()
 
@@ -25,6 +26,7 @@ public class InstaObjectMainImageCollectionViewCell: UICollectionViewCell {
         let label = UILabel(withAutoLayout: true)
         label.font = .title3
         label.numberOfLines = 0
+        label.textColor = .milk
         return label
     }()
 
@@ -34,6 +36,8 @@ public class InstaObjectMainImageCollectionViewCell: UICollectionViewCell {
     public override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
+
+        contentView.backgroundColor = .red
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -77,7 +81,8 @@ public class InstaObjectMainImageCollectionViewCell: UICollectionViewCell {
             self?.imageView.image = image
         })
 
-        titleLabel.attributedText = NSAttributedString(string: viewModel.title, attributes: [.strokeColor: UIColor.stone, .strokeWidth: 1.0, .foregroundColor: UIColor.milk])
-        priceLabel.attributedText = NSAttributedString(string: viewModel.priceText, attributes: [.strokeColor: UIColor.stone, .strokeWidth: 1.0, .foregroundColor: UIColor.milk])
+        let attrs: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.milk, .strokeColor: UIColor.stone, .strokeWidth: -3.0]
+        titleLabel.attributedText = NSAttributedString(string: viewModel.title, attributes: attrs)
+        priceLabel.attributedText = NSAttributedString(string: viewModel.priceText, attributes: attrs)
     }
 }

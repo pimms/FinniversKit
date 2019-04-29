@@ -31,6 +31,8 @@ public class InstaObjectImageCollectionViewCell: UICollectionViewCell {
     public override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
+
+        contentView.backgroundColor = .yellow
     }
 
     required init?(coder aDecoder: NSCoder) {
