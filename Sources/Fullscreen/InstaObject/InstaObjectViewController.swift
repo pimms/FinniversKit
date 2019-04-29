@@ -4,15 +4,9 @@
 
 import UIKit
 
-public protocol InstaObjectViewControllerDelegate: AnyObject {
-    func instaObjectViewController(_ vc: InstaObjectViewController, fetchImageWithUrl url: URL, completion: @escaping (UIImage?) -> Void)
-}
-
 public class InstaObjectViewController: UIViewController {
 
-    // MARK: - Public properties
-
-    public weak var delegate: InstaObjectViewControllerDelegate?
+    var viewModels: [InstaObjectSectionViewModel] = []
 
     // MARK: - Init
 
@@ -20,10 +14,7 @@ public class InstaObjectViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    init(delegate: InstaObjectViewControllerDelegate, model: InstaObjectViewModel) {
+    init() {
         super.init(nibName: nil, bundle: nil)
-        self.delegate = delegate
-
-
     }
 }

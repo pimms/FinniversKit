@@ -202,7 +202,7 @@
 		8962DA5B2276CACF00A1BC78 /* InstaObjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8962DA5A2276CACF00A1BC78 /* InstaObjectViewModel.swift */; };
 		8962DA5E2276CBC700A1BC78 /* InstaObjectDemoStateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8962DA5D2276CBC700A1BC78 /* InstaObjectDemoStateController.swift */; };
 		8962DA612276E1F700A1BC78 /* InstaObjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8962DA5F2276D03700A1BC78 /* InstaObjectViewController.swift */; };
-		8962DA632276E3AB00A1BC78 /* InstaObjectSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8962DA622276E3AB00A1BC78 /* InstaObjectSection.swift */; };
+		8962DA642276E6B500A1BC78 /* InstaObjectSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8962DA622276E3AB00A1BC78 /* InstaObjectSectionViewModel.swift */; };
 		899D0BF6222D4B3400794DEC /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899D0BF5222D4B3400794DEC /* ArrayExtensions.swift */; };
 		899D0BF8222D58D700794DEC /* FullscreenGalleryOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899D0BF7222D58D700794DEC /* FullscreenGalleryOverlayView.swift */; };
 		89A7A63D225337B50053D33B /* NativeAdvertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A7A63C225337B50053D33B /* NativeAdvertViewModel.swift */; };
@@ -572,7 +572,7 @@
 		8962DA5A2276CACF00A1BC78 /* InstaObjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstaObjectViewModel.swift; sourceTree = "<group>"; };
 		8962DA5D2276CBC700A1BC78 /* InstaObjectDemoStateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstaObjectDemoStateController.swift; sourceTree = "<group>"; };
 		8962DA5F2276D03700A1BC78 /* InstaObjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstaObjectViewController.swift; sourceTree = "<group>"; };
-		8962DA622276E3AB00A1BC78 /* InstaObjectSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstaObjectSection.swift; sourceTree = "<group>"; };
+		8962DA622276E3AB00A1BC78 /* InstaObjectSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstaObjectSectionViewModel.swift; sourceTree = "<group>"; };
 		899D0BF5222D4B3400794DEC /* ArrayExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
 		899D0BF7222D58D700794DEC /* FullscreenGalleryOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenGalleryOverlayView.swift; sourceTree = "<group>"; };
 		89A7A63C225337B50053D33B /* NativeAdvertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeAdvertViewModel.swift; sourceTree = "<group>"; };
@@ -1573,8 +1573,8 @@
 			isa = PBXGroup;
 			children = (
 				8962DA5A2276CACF00A1BC78 /* InstaObjectViewModel.swift */,
+				8962DA622276E3AB00A1BC78 /* InstaObjectSectionViewModel.swift */,
 				8962DA5F2276D03700A1BC78 /* InstaObjectViewController.swift */,
-				8962DA622276E3AB00A1BC78 /* InstaObjectSection.swift */,
 			);
 			path = InstaObject;
 			sourceTree = "<group>";
@@ -2908,7 +2908,6 @@
 				DA4AD4D52105CFB00000F39E /* RadioButtonDemoView.swift in Sources */,
 				4443F9B1209D5ECE00E35719 /* Helpers.swift in Sources */,
 				AA864B4D22329E7100BAE95A /* UIDevice.swift in Sources */,
-				8962DA632276E3AB00A1BC78 /* InstaObjectSection.swift in Sources */,
 				4447F7111FDB2B8C0033DBC1 /* ToastDemoView.swift in Sources */,
 				AAC1AFB42021058000C71B7C /* Demo.swift in Sources */,
 				144351C41FBE2FA2007B2229 /* AppDelegate.swift in Sources */,
@@ -2958,6 +2957,7 @@
 				F26852FC2201DAD8000978C8 /* UserAdsListViewSeeAllAdsCell.swift in Sources */,
 				082D80CB21C13C7B00831BDE /* RoundedRectangleGiftView.swift in Sources */,
 				443A6420209A5044006BFB38 /* NotificationsListFooterView.swift in Sources */,
+				8962DA642276E6B500A1BC78 /* InstaObjectSectionViewModel.swift in Sources */,
 				F26852D821F753A5000978C8 /* UserAdsListHeaderView.swift in Sources */,
 				441FE44E209A2F2C00B04EF1 /* NotificationsListView.swift in Sources */,
 				4447F6EF1FDB2B110033DBC1 /* ToastView+Style.swift in Sources */,
