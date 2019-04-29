@@ -18,6 +18,9 @@
 		082D80D121C1411700831BDE /* StarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082D80D021C1411700831BDE /* StarView.swift */; };
 		082D80D321C1440D00831BDE /* EmptyChristmasViewDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082D80D221C1440D00831BDE /* EmptyChristmasViewDemoView.swift */; };
 		082D80D521C15C9200831BDE /* CandyCaneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082D80D421C15C9200831BDE /* CandyCaneView.swift */; };
+		086B703F2276F10400221F41 /* InstaObjectImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086B703E2276F10400221F41 /* InstaObjectImageCollectionViewCell.swift */; };
+		086B70412276F2CD00221F41 /* InstaObjectDescriptionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086B70402276F2CD00221F41 /* InstaObjectDescriptionCollectionViewCell.swift */; };
+		086B70432276F3FA00221F41 /* InstaObjectMainImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086B70422276F3FA00221F41 /* InstaObjectMainImageCollectionViewCell.swift */; };
 		08796D8821CB89400023A441 /* AnimatedHeartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08796D8721CB89400023A441 /* AnimatedHeartView.swift */; };
 		08796D8A21CB8AB90023A441 /* HeartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08796D8921CB8AB90023A441 /* HeartTableViewCell.swift */; };
 		08796D8E21CB97200023A441 /* HeartSubtitleCellDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08796D8D21CB97200023A441 /* HeartSubtitleCellDemoView.swift */; };
@@ -389,6 +392,9 @@
 		082D80D021C1411700831BDE /* StarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarView.swift; sourceTree = "<group>"; };
 		082D80D221C1440D00831BDE /* EmptyChristmasViewDemoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyChristmasViewDemoView.swift; sourceTree = "<group>"; };
 		082D80D421C15C9200831BDE /* CandyCaneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandyCaneView.swift; sourceTree = "<group>"; };
+		086B703E2276F10400221F41 /* InstaObjectImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstaObjectImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		086B70402276F2CD00221F41 /* InstaObjectDescriptionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstaObjectDescriptionCollectionViewCell.swift; sourceTree = "<group>"; };
+		086B70422276F3FA00221F41 /* InstaObjectMainImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstaObjectMainImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		08796D8721CB89400023A441 /* AnimatedHeartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedHeartView.swift; sourceTree = "<group>"; };
 		08796D8921CB8AB90023A441 /* HeartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartTableViewCell.swift; sourceTree = "<group>"; };
 		08796D8D21CB97200023A441 /* HeartSubtitleCellDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartSubtitleCellDemoView.swift; sourceTree = "<group>"; };
@@ -762,6 +768,16 @@
 				DAC65FBA21E35F7300644CDE /* BottomSheetMechanicsDemoViewController.swift */,
 			);
 			path = BottomSheet;
+			sourceTree = "<group>";
+		};
+		086B703D2276F0F200221F41 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				086B70422276F3FA00221F41 /* InstaObjectMainImageCollectionViewCell.swift */,
+				086B703E2276F10400221F41 /* InstaObjectImageCollectionViewCell.swift */,
+				086B70402276F2CD00221F41 /* InstaObjectDescriptionCollectionViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		08796D8F21CB97D70023A441 /* ViewModels */ = {
@@ -1570,6 +1586,7 @@
 		8962DA592276CAAD00A1BC78 /* InstaObject */ = {
 			isa = PBXGroup;
 			children = (
+				086B703D2276F0F200221F41 /* Cells */,
 				8962DA622276E3AB00A1BC78 /* InstaObjectViewModel.swift */,
 				8962DA5F2276D03700A1BC78 /* InstaObjectViewController.swift */,
 			);
@@ -2967,6 +2984,7 @@
 				DAA9A3A9210215400021F7DC /* SelectionboxItem.swift in Sources */,
 				F22612DC225C788A00472D22 /* StatisticsItemEmptyViewModel.swift in Sources */,
 				44A149ED21377C7B0053D5F7 /* SavedSearchesListViewModel.swift in Sources */,
+				086B703F2276F10400221F41 /* InstaObjectImageCollectionViewCell.swift in Sources */,
 				DA3C8443210B0F7800BBCC13 /* AdReporterViewModel.swift in Sources */,
 				4447F7031FDB2B110033DBC1 /* FinniversKit.swift in Sources */,
 				DAA9A3AC210215400021F7DC /* AnimatedSelectionView.swift in Sources */,
@@ -3036,6 +3054,7 @@
 				08D70A1B21832901003E2222 /* UIEdgeInsetsExtensions.swift in Sources */,
 				F26852F221FEFA97000978C8 /* UserAdsListViewModel.swift in Sources */,
 				14DC127121593B0000326DC3 /* HorizontalSlideTransitionAnimator.swift in Sources */,
+				086B70412276F2CD00221F41 /* InstaObjectDescriptionCollectionViewCell.swift in Sources */,
 				F26852F321FEFA9C000978C8 /* UserAdsListHeaderViewModel.swift in Sources */,
 				4408A6A32027AC41008C0BD9 /* Color.swift in Sources */,
 				89A7A63F2253387A0053D33B /* NativeAdvertView.swift in Sources */,
@@ -3068,6 +3087,7 @@
 				CF848C2C21C7E0860086530E /* CogWheelButton.swift in Sources */,
 				F26852D621F7530A000978C8 /* UserAdsListView.swift in Sources */,
 				DAB7FAAB21B690DD00BF8CC6 /* BottomSheetInteractionController.swift in Sources */,
+				086B70432276F3FA00221F41 /* InstaObjectMainImageCollectionViewCell.swift in Sources */,
 				CF7C460722257A8A001FB92C /* EarthHourTagView.swift in Sources */,
 				45D7C56D20494C7A000E788F /* SwitchViewModel.swift in Sources */,
 				AF91BB97202C74D0003E6366 /* BroadcastItem.swift in Sources */,
